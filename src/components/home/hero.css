@@ -1,0 +1,21 @@
+
+  /* Add to your global CSS */
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+    
+    .hero-heading,
+    .hero-subheading,
+    .hero-cta {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
