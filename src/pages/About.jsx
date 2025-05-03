@@ -2,6 +2,8 @@ import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionHeading from '../components/ui/SectionHeading'
+import ClientsSection from './ClientCraousal'
+import WhyChooseUs from './WhyChooseUs'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -292,7 +294,7 @@ function About() {
                 <div className="w-1/2 px-8">
                   <div className="card p-6">
                     <h3 className="text-xl font-semibold mb-2">{event.title}</h3>
-                    <p className="text-gray-600">{event.description}</p>
+                    <p className="text-gray-600  sm:text-sm text-xs">{event.description}</p>
                   </div>
                 </div>
               </div>
@@ -302,7 +304,7 @@ function About() {
       </section>
 
       {/* Client Testimonials */}
-      <section className="section bg-primary-700 text-white">
+      {/* <section className="section bg-primary-700 text-white">
         <div className="container-custom">
           <SectionHeading
             title="Our Clients"
@@ -320,7 +322,10 @@ function About() {
             <div className="text-xl font-bold text-white opacity-80">And More...</div>
           </div>
         </div>
-      </section>
+      </section> */}
+      <WhyChooseUs />
+
+      <ClientsSection />
     </div>
   )
 }

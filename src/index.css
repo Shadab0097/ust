@@ -121,3 +121,26 @@
 .client-card:hover .hover-scale {
   transform: scale(1.1);
 }
+
+/* Smooth font rendering for animated elements */
+.clients-carousel * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+}
+
+/* Gradient overlay animations */
+@keyframes gradient-pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+}
+
+.gradient-overlay {
+  animation: gradient-pulse 6s ease-in-out infinite;
+}
+
+body {
+  --tw-gradient-from: #1a1a1a;
+  --tw-gradient-to: rgba(26, 26, 26, 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}

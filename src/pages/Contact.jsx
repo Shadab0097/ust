@@ -14,7 +14,7 @@ function Contact() {
   const [formErrors, setFormErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
-  
+
   const inputRefs = {
     name: useRef(null),
     email: useRef(null),
@@ -22,17 +22,17 @@ function Contact() {
     phone: useRef(null),
     message: useRef(null)
   }
-  
+
   // Update page title
   useEffect(() => {
     document.title = 'Contact Us - U.S.T Enterprises'
   }, [])
-  
+
   // Add input animation effects
   useEffect(() => {
     Object.keys(inputRefs).forEach(key => {
       const inputEl = inputRefs[key].current
-      
+
       if (inputEl) {
         // Focus animation
         inputEl.addEventListener('focus', () => {
@@ -44,7 +44,7 @@ function Contact() {
             easing: 'easeOutQuad'
           })
         })
-        
+
         // Blur animation
         inputEl.addEventListener('blur', () => {
           anime({
@@ -58,7 +58,7 @@ function Contact() {
       }
     })
   }, [])
-  
+
   // Handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -66,7 +66,7 @@ function Contact() {
       ...prev,
       [name]: value
     }))
-    
+
     // Clear error when typing
     if (formErrors[name]) {
       setFormErrors(prev => ({
@@ -75,43 +75,43 @@ function Contact() {
       }))
     }
   }
-  
+
   // Validate form data
   const validateForm = () => {
     const errors = {}
-    
+
     if (!formData.name.trim()) {
       errors.name = 'Name is required'
     }
-    
+
     if (!formData.email.trim()) {
       errors.email = 'Email is required'
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       errors.email = 'Email is invalid'
     }
-    
+
     if (!formData.message.trim()) {
       errors.message = 'Message is required'
     }
-    
+
     return errors
   }
-  
+
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault()
-    
+
     const errors = validateForm()
     setFormErrors(errors)
-    
+
     if (Object.keys(errors).length === 0) {
       setIsSubmitting(true)
-      
+
       // Simulate form submission
       setTimeout(() => {
         setIsSubmitting(false)
         setIsSubmitted(true)
-        
+
         // Reset form after submission
         setFormData({
           name: '',
@@ -120,7 +120,7 @@ function Contact() {
           phone: '',
           message: ''
         })
-        
+
         // Reset submitted state after 5 seconds
         setTimeout(() => {
           setIsSubmitted(false)
@@ -128,14 +128,14 @@ function Contact() {
       }, 1500)
     }
   }
-  
+
   return (
     <div>
       {/* Hero Section */}
       <div className="relative bg-primary-800 py-32">
-        <div 
+        <div
           className="absolute inset-0 opacity-20"
-          style={{ 
+          style={{
             backgroundImage: 'url(https://images.pexels.com/photos/159243/keyboard-contact-us-email-help-159243.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -150,7 +150,7 @@ function Contact() {
           </div>
         </div>
       </div>
-      
+
       {/* Contact Form Section */}
       <section className="section bg-white">
         <div className="container-custom">
@@ -160,7 +160,7 @@ function Contact() {
                 title="Get In Touch"
                 subtitle="We're here to answer your questions and provide the information you need"
               />
-              
+
               {isSubmitted ? (
                 <div className="bg-success-50 border border-success-100 rounded-xl p-6 mb-8">
                   <h3 className="text-xl font-semibold text-success-700 mb-2">Message Sent!</h3>
@@ -185,7 +185,7 @@ function Contact() {
                       <p className="mt-1 text-sm text-error-500">{formErrors.name}</p>
                     )}
                   </div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="email" className="label">Email Address*</label>
@@ -202,7 +202,7 @@ function Contact() {
                         <p className="mt-1 text-sm text-error-500">{formErrors.email}</p>
                       )}
                     </div>
-                    
+
                     <div>
                       <label htmlFor="phone" className="label">Phone (Optional)</label>
                       <input
@@ -216,7 +216,7 @@ function Contact() {
                       />
                     </div>
                   </div>
-                  
+
                   <div>
                     <label htmlFor="company" className="label">Company (Optional)</label>
                     <input
@@ -229,7 +229,7 @@ function Contact() {
                       className="input"
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="message" className="label">Message*</label>
                     <textarea
@@ -245,7 +245,7 @@ function Contact() {
                       <p className="mt-1 text-sm text-error-500">{formErrors.message}</p>
                     )}
                   </div>
-                  
+
                   <div>
                     <Button
                       type="submit"
@@ -259,11 +259,11 @@ function Contact() {
                 </form>
               )}
             </div>
-            
+
             <div>
               <div className="bg-gray-50 rounded-2xl p-8 h-full">
                 <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
-                
+
                 <div className="space-y-8">
                   <div className="flex">
                     <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4 shrink-0">
@@ -281,7 +281,7 @@ function Contact() {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex">
                     <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4 shrink-0">
                       <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -296,7 +296,7 @@ function Contact() {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex">
                     <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4 shrink-0">
                       <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -311,7 +311,7 @@ function Contact() {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex">
                     <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4 shrink-0">
                       <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -333,14 +333,23 @@ function Contact() {
           </div>
         </div>
       </section>
-      
+
       {/* Map Section */}
       <section className="bg-white pb-16">
         <div className="container-custom">
-          <div className="rounded-2xl overflow-hidden shadow-lg h-96">
-            {/* Embed Google Map here */}
-            <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-              <p className="text-gray-500">Google Map would be embedded here</p>
+          <div className="rounded-2xl overflow-hidden shadow-lg">
+            <div className="w-full h-96">
+              <iframe
+                title="Company Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.1225095212814!2d76.881725!3d28.373745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDIyJzI1LjUiTiA3NsKwNTMnMDIuMCJF!5e0!3m2!1sen!2sin!4v1718203215477!5m2!1sen!2sin&markers=color:red%7Clabel:L%7C28.373745,76.883895"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="rounded-2xl"
+              ></iframe>
             </div>
           </div>
         </div>
