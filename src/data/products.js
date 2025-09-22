@@ -363,6 +363,211 @@ const products = [
     }
   }
   ,
+  {
+    "id": 7,
+    "name": "Atta Chakki Machine",
+    "shortDescription": "Traditional stone-based flour grinding for fresh, nutritious flour",
+    "description": "Commercial-grade atta chakki machine designed for high-quality flour production from wheat, rice, maize, and other grains. Features traditional stone grinding technology that preserves nutritional value and natural taste, with robust construction for continuous commercial operation and consistent flour quality.",
+    "category": "Flour Milling Equipment",
+    "images": [
+      "/assets/attaChakki/ac1.jpg",
+      "/assets/attaChakki/ac2.jpg",
+    ],
+    "model3D": "",
+    "features": [
+      "Traditional stone grinding mechanism for natural flour texture",
+      "Heavy-duty motor with copper winding for continuous operation",
+      "Adjustable grinding settings from coarse to fine",
+      "Large capacity hopper for uninterrupted production",
+      "Auto-stop safety feature when hopper is empty",
+      "Easy maintenance with accessible grinding chamber",
+      "Robust MS body construction with color-coated finish",
+      "Multi-grain processing capability (wheat, rice, maize, millets)"
+    ],
+    "specifications": {
+      "Motor Power": "1 HP - 25 HP (varies by model)",
+      "Production Capacity": "8-200 kg/hr",
+      "Stone Size": "14-30 inches",
+      "Power Consumption": "0.75-15 kWh",
+      "Operation Mode": "Semi-Automatic",
+      "Voltage": "220V Single Phase / 440V Three Phase",
+      "Weight": "100-1050 kg (model dependent)",
+      "Material": "Mild Steel body with Stainless Steel contact parts",
+      "RPM": "1440-2880 RPM",
+      "Electricity Connection": "Single/Three Phase"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Sheet Rolling Machine",
+    "shortDescription": "3-roll pyramid type for precise plate bending and forming",
+    "description": "Industrial-grade 3-roll pyramid type sheet rolling machine designed for forming cylindrical, conical, and curved shapes from metal plates. Features asymmetrical roller configuration with upper main drive roller and adjustable lower rollers for versatile plate forming applications in fabrication and manufacturing industries.",
+    "category": "Metal Forming Equipment",
+    "images": [
+      "/assets/sheetRolling/sr1.jpg",
+      "/assets/sheetRolling/sr2.jpg",
+      "/assets/sheetRolling/sr3.jpg",
+      "/assets/sheetRolling/sr4.jpg",
+
+    ],
+    "model3D": "",
+    "features": [
+      "3-roll pyramid type asymmetrical design for superior forming",
+      "Upper roller main drive with vertical lifting capability",
+      "Two lower rollers with independent horizontal movement",
+      "Pre-bending capability for plate edge forming",
+      "Heavy-duty cast iron frame construction",
+      "Mechanical gear drive system for consistent torque",
+      "Manual control with easy operation handles",
+      "Hardened and ground roller surfaces for durability",
+      "Wide range of plate thickness handling capability",
+      "Emergency stop safety features"
+    ],
+    "specifications": {
+      "Max Plate Thickness": "3-50 mm (model dependent)",
+      "Max Plate Width": "1500-6000 mm",
+      "Min Rolling Diameter": "300-1200 mm",
+      "Upper Roller Diameter": "150-670 mm",
+      "Lower Roller Diameter": "120-620 mm",
+      "Motor Power": "3-75 kW",
+      "Production Capacity": "1-6 ton/day",
+      "Plate Yield Limit": "245 MPa",
+      "Rolling Speed": "6 m/min",
+      "Machine Weight": "300-90000 kg (varies by model)",
+      "Operating Mode": "Manual/Semi-Automatic"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Telescopic Belt Conveyor",
+    "shortDescription": "Extendable loading system for efficient truck and container operations",
+    "description": "Multi-stage telescopic belt conveyor system designed for rapid loading and unloading of trucks, containers, and warehouses. Features hydraulic extension and retraction capabilities with adjustable height settings, enabling operators to reach deep into vehicles while minimizing manual handling and improving operational efficiency.",
+    "category": "Material Handling Equipment",
+    "images": [
+      "/assets/telescopicBelt/ts1.jpg",
+      "/assets/telescopicBelt/ts2.jpg",
+      "/assets/telescopicBelt/ts3.jpg",
+      "/assets/telescopicBelt/ts4.jpg",
+
+    ],
+    "model3D": "",
+    "features": [
+      "Multi-stage telescopic extension up to 21 meters",
+      "Hydraulic height adjustment system (up to 3 meters lift)",
+      "Bi-directional belt movement for loading/unloading",
+      "PLC intelligent controller with fault detection",
+      "Mobile design with solid tires and castor wheels",
+      "Variable speed control with VFD drive",
+      "Emergency stop safety features",
+      "Compact retracted length for space efficiency",
+      "Heavy-duty steel frame construction",
+      "Remote control operation capability"
+    ],
+    "specifications": {
+      "Number of Stages": "3-5 stages",
+      "Fixed Length": "4-16 meters",
+      "Extension Length": "5.4-22 meters",
+      "Total Extended Length": "9.4-38 meters",
+      "Belt Width": "600-800 mm",
+      "Belt Material": "PVC/PU/Rubber with alligator clip joints",
+      "Load Capacity": "50 kg/meter",
+      "Maximum Load": "4000 kg total",
+      "Belt Speed": "15-40 m/min (adjustable)",
+      "Extension Speed": "10-20 m/min",
+      "Height Range": "750-2100 mm (adjustable)",
+      "Motor Power": "3-6.95 kW total system",
+      "Voltage": "220V/380V/415V, 50/60Hz",
+      "Control System": "PLC with touch panel interface"
+    }
+  }
+  ,
+  {
+    "id": 10,
+    "name": "Vibro De-Stoner",
+    "shortDescription": "Precision stone and heavy impurity removal from grains and pulses",
+    "description": "Advanced vibratory destoning machine designed for efficient separation of stones, glass, metal fragments, and other heavy impurities from grains, pulses, and seeds. Utilizes specific gravity differences and controlled air flow with reciprocating motion to achieve superior cleaning performance in grain processing applications.",
+    "category": "Grain Cleaning Equipment",
+    "images": [
+      "/assets/vibroDeStoner/vd1.jpg",
+      "/assets/vibroDeStoner/vd2.jpg",
+      "/assets/vibroDeStoner/vd3.jpg",
+      "/assets/vibroDeStoner/vd4.jpg",
+      "/assets/vibroDeStoner/vd5.jpg",
+
+    ],
+    "model3D": "",
+    "features": [
+      "Fluidized air bed technology for precise stratification",
+      "Adjustable deck inclination for optimal separation efficiency",
+      "Transparent viewing window for process monitoring",
+      "Dual vibro motors for consistent reciprocating motion",
+      "Integrated aspiration system with cyclone blower",
+      "Stainless steel contact parts for food-grade safety",
+      "Rubber spring suspension system for smooth operation",
+      "Easy maintenance with accessible screen deck",
+      "Dust-free operation with enclosed design",
+      "Multiple discharge outlets for different fractions"
+    ],
+    "specifications": {
+      "Processing Capacity": "1-12 TPH (varies by model)",
+      "Motor Configuration": "Main: 5-10 HP, Vibro: 0.5-1 HP x 2",
+      "Screen Deck Size": "950-1340 mm width",
+      "Number of Decks": "1-2 decks",
+      "Separation Efficiency": ">95% stone removal",
+      "Power Consumption": "7.5-15 kW total",
+      "Voltage": "440V, 3 Phase, 50 Hz",
+      "Air Flow Rate": "2000-4000 m³/hr",
+      "Dimensions (LxWxH)": "1537x1130x1930 to 1537x1340x1930 mm",
+      "Weight": "800-1440 kg",
+      "Material": "MS body with SS contact parts",
+      "Operating Mode": "Automatic with manual controls"
+    }
+  }
+  ,
+  {
+    "id": 11,
+    "name": "Hammer Mill",
+    "shortDescription": "High-speed crushing and grinding for feed and grain processing",
+    "description": "Industrial hammer mill designed for crushing and grinding various materials including grains, feed components, agricultural products, and biomass. Features high-speed rotating hammers that reduce material size through multiple impact crushing, with adjustable screen perforations for precise particle size control in feed mills and processing plants.",
+    "category": "Crushing & Grinding Equipment",
+    "images": [
+      "/assets/hammerMill/hm1.jpg",
+      "/assets/hammerMill/hm2.jpg",
+      "/assets/hammerMill/hm3.jpg",
+      "/assets/hammerMill/hmi4.jpg",
+
+    ],
+    "model3D": "",
+    "features": [
+      "High-speed rotating hammer system for impact crushing",
+      "Interchangeable perforated screens for size control",
+      "Free-swinging hammers to minimize wear and blocking",
+      "Heavy-duty rotor shaft with balanced design",
+      "Adjustable hammer-to-screen gap settings",
+      "Dust collection system with cyclone separator",
+      "Reversible hammers for extended service life",
+      "Easy access doors for maintenance and screen changes",
+      "Robust steel construction with wear-resistant linings",
+      "Variable speed control for different materials"
+    ],
+    "specifications": {
+      "Motor Power": "5-100 HP (3.7-75 kW)",
+      "Production Capacity": "200-3000 kg/hr",
+      "Hammer Tip Speed": "80-100 m/sec",
+      "RPM Range": "1500-3600 RPM",
+      "Rotor Diameter": "200-760 mm",
+      "Number of Hammers": "8-48 pieces",
+      "Screen Hole Size": "1-40 mm (interchangeable)",
+      "Feed Size": "Up to 100 mm",
+      "Final Fineness": "0.5-15 mm",
+      "Chamber Dimensions": "200x150 to 760x600 mm",
+      "Voltage": "220V/380V/415V, 3-phase",
+      "Material Construction": "MS/SS contact parts",
+      "Machine Weight": "150-5000 kg (model dependent)"
+    }
+  }
+
+
 
 
 ];

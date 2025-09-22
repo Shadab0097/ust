@@ -3,7 +3,7 @@ import Logo from '../ui/Logo'
 
 function Footer() {
   const currentYear = new Date().getFullYear()
-  
+
   return (
     <footer className="bg-charcoal text-white">
       <div className="container-custom py-16">
@@ -21,7 +21,7 @@ function Footer() {
               Gurgaon, Haryana, India
             </p>
           </div>
-          
+
           {/* Quick Links */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
@@ -48,7 +48,7 @@ function Footer() {
               </li>
             </ul>
           </div>
-          
+
           {/* Products */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Our Products</h3>
@@ -80,27 +80,29 @@ function Footer() {
               </li>
             </ul>
           </div>
-          
+
           {/* Contact Info */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-2">
               <li className="flex items-start">
                 <span className="mr-2">📍</span>
-                <span className="text-gray-400">123 Industrial Area, Sector 14, Gurgaon, Haryana 122001, India</span>
+                <span className="text-gray-400">   Plot No. 207 , sector 8 , IMT Manessar
+                  Gurgaon, Haryana 122001
+                  India</span>
               </li>
               <li className="flex items-center">
                 <span className="mr-2">📞</span>
-                <span className="text-gray-400">+91 98765 43210</span>
+                <span className="text-gray-400">+91 9560983082</span>
               </li>
               <li className="flex items-center">
                 <span className="mr-2">✉️</span>
-                <span className="text-gray-400">info@ustenterprises.com</span>
+                <span className="text-gray-400">ustenterprises13.com</span>
               </li>
             </ul>
           </div>
         </div>
-        
+
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-500">
           <p>© {currentYear} U.S.T Enterprises. All rights reserved.</p>
         </div>

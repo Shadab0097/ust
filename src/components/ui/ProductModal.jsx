@@ -203,6 +203,7 @@ import { useEffect, useRef, useState } from 'react'
 import anime from 'animejs'
 import Button from './Button'
 import ProductViewer3D from '../3d/ProductViewer3D'
+import { Link } from 'react-router-dom'
 
 function ProductModal({ product, onClose, isOpen }) {
   const modalRef = useRef(null)
@@ -512,13 +513,15 @@ function ProductModal({ product, onClose, isOpen }) {
               )}
 
               <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
-                <Button
-                  variant="primary"
-                  onClick={() => window.location.href = '/quote'}
-                  className="flex-1 sm:flex-none"
-                >
-                  Request Quote
-                </Button>
+                <Link to="/quote">
+                  <Button
+                    variant="primary"
+                    // onClick={() => window.location.href = '/quote'}
+                    className="flex-1 sm:flex-none"
+                  >
+                    Request Quote
+                  </Button>
+                </Link>
 
                 <Button
                   variant="outline"
