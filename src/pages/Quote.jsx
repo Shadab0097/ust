@@ -4,10 +4,11 @@ import { useGLTF, OrbitControls, Environment } from '@react-three/drei'
 import anime from 'animejs'
 import Button from '../components/ui/Button'
 import SectionHeading from '../components/ui/SectionHeading'
+import products from '../data/products'
 
 function RotatingGear() {
   const meshRef = useRef()
-  
+
   useEffect(() => {
     if (meshRef.current) {
       anime({
@@ -19,7 +20,7 @@ function RotatingGear() {
       })
     }
   }, [])
-  
+
   return (
     <mesh ref={meshRef}>
       <cylinderGeometry args={[2, 2, 0.5, 32]} />
@@ -40,22 +41,22 @@ function Quote() {
     timeline: '',
     message: ''
   })
-  
+
   const [formErrors, setFormErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
-  
+
   useEffect(() => {
     document.title = 'Get Quote - U.S.T Enterprises'
   }, [])
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({
       ...prev,
       [name]: value
     }))
-    
+
     if (formErrors[name]) {
       setFormErrors(prev => ({
         ...prev,
@@ -63,55 +64,81 @@ function Quote() {
       }))
     }
   }
-  
+
   const validateForm = () => {
     const errors = {}
-    
+
     if (!formData.name.trim()) errors.name = 'Name is required'
     if (!formData.email.trim()) errors.email = 'Email is required'
     if (!formData.productType.trim()) errors.productType = 'Product type is required'
     if (!formData.message.trim()) errors.message = 'Message is required'
-    
+
     return errors
   }
-  
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    
-    const errors = validateForm()
-    setFormErrors(errors)
-    
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const errors = validateForm();
+    setFormErrors(errors);
+
     if (Object.keys(errors).length === 0) {
-      setIsSubmitting(true)
-      
-      setTimeout(() => {
-        setIsSubmitting(false)
-        setIsSubmitted(true)
-        setFormData({
-          name: '',
-          email: '',
-          company: '',
-          phone: '',
-          productType: '',
-          quantity: '',
-          specifications: '',
-          timeline: '',
-          message: ''
-        })
-        
-        setTimeout(() => {
-          setIsSubmitted(false)
-        }, 5000)
-      }, 1500)
+      setIsSubmitting(true);
+
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: "e8db4a00-9d48-4f28-9eb5-4d0dd07f62f4", // 👈 Replace with your Web3Forms access key
+            subject: "New Quote Request from U.S.T Enterprises Website",
+            from_name: formData.name,
+            from_email: formData.email,
+            ...formData, // send all fields
+          }),
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          setIsSubmitted(true);
+          setFormData({
+            name: "",
+            email: "",
+            company: "",
+            phone: "",
+            productType: "",
+            quantity: "",
+            specifications: "",
+            timeline: "",
+            message: "",
+          });
+
+          setTimeout(() => {
+            setIsSubmitted(false);
+          }, 5000);
+        } else {
+          alert("Something went wrong. Please try again later.");
+        }
+      } catch (error) {
+        console.error("Web3Forms error:", error);
+        alert("Error sending request. Please try again later.");
+      } finally {
+        setIsSubmitting(false);
+      }
     }
-  }
-  
+  };
+
+
   return (
     <div>
       <div className="relative bg-primary-800 py-32">
-        <div 
+        <div
           className="absolute inset-0 opacity-20"
-          style={{ 
+          style={{
             backgroundImage: 'url(https://images.pexels.com/photos/3822843/pexels-photo-3822843.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -126,7 +153,7 @@ function Quote() {
           </div>
         </div>
       </div>
-      
+
       <section className="section bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -135,7 +162,7 @@ function Quote() {
                 title="Get Your Custom Quote"
                 subtitle="Fill out the form below and we'll get back to you with pricing and timeline details"
               />
-              
+
               {isSubmitted ? (
                 <div className="bg-success-50 border border-success-100 rounded-xl p-6 mb-8">
                   <h3 className="text-xl font-semibold text-success-700 mb-2">Quote Request Sent!</h3>
@@ -160,7 +187,7 @@ function Quote() {
                         <p className="mt-1 text-sm text-error-500">{formErrors.name}</p>
                       )}
                     </div>
-                    
+
                     <div>
                       <label htmlFor="email" className="label">Email Address*</label>
                       <input
@@ -176,7 +203,7 @@ function Quote() {
                       )}
                     </div>
                   </div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="company" className="label">Company Name</label>
@@ -189,7 +216,7 @@ function Quote() {
                         className="input"
                       />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="phone" className="label">Phone Number</label>
                       <input
@@ -202,7 +229,7 @@ function Quote() {
                       />
                     </div>
                   </div>
-                  
+
                   <div>
                     <label htmlFor="productType" className="label">Product Type*</label>
                     <select
@@ -213,18 +240,17 @@ function Quote() {
                       className={`input ${formErrors.productType ? 'border-error-500' : ''}`}
                     >
                       <option value="">Select a product type</option>
-                      <option value="handling-trolley">Handling Trolley</option>
-                      <option value="industrial-hood">Industrial Hood</option>
-                      <option value="hopper-machine">Hopper Machine</option>
-                      <option value="storage-trolley">Storage Trolley</option>
-                      <option value="jib-crane">JIB Crane</option>
-                      <option value="custom">Custom Product</option>
+                      {products?.map((item) => {
+
+                        return <option key={item?.id} value={item?.name}>{item?.name}</option>
+                      })}
+
                     </select>
-                    {formErrors.productType && (
+                    {formErrors?.productType && (
                       <p className="mt-1 text-sm text-error-500">{formErrors.productType}</p>
                     )}
                   </div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="quantity" className="label">Quantity Required</label>
@@ -238,7 +264,7 @@ function Quote() {
                         min="1"
                       />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="timeline" className="label">Required Timeline</label>
                       <input
@@ -252,7 +278,7 @@ function Quote() {
                       />
                     </div>
                   </div>
-                  
+
                   <div>
                     <label htmlFor="specifications" className="label">Technical Specifications</label>
                     <textarea
@@ -265,7 +291,7 @@ function Quote() {
                       className="input"
                     ></textarea>
                   </div>
-                  
+
                   <div>
                     <label htmlFor="message" className="label">Additional Details*</label>
                     <textarea
@@ -280,7 +306,7 @@ function Quote() {
                       <p className="mt-1 text-sm text-error-500">{formErrors.message}</p>
                     )}
                   </div>
-                  
+
                   <Button
                     type="submit"
                     variant="primary"
@@ -292,10 +318,10 @@ function Quote() {
                 </form>
               )}
             </div>
-            
+
             <div className="hidden lg:block">
               <div className="sticky top-24">
-                <div className="h-96 bg-gray-50 rounded-2xl overflow-hidden">
+                {/* <div className="h-96 bg-gray-50 rounded-2xl overflow-hidden">
                   <Canvas camera={{ position: [0, 0, 5] }}>
                     <ambientLight intensity={0.5} />
                     <pointLight position={[10, 10, 10]} />
@@ -303,8 +329,8 @@ function Quote() {
                     <OrbitControls enableZoom={false} />
                     <Environment preset="city" />
                   </Canvas>
-                </div>
-                
+                </div> */}
+
                 <div className="mt-8 bg-primary-50 rounded-2xl p-6">
                   <h3 className="text-xl font-semibold mb-4">Why Choose U.S.T Enterprises?</h3>
                   <ul className="space-y-4">

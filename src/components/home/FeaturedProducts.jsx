@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger)
 function FeaturedProductCard({ product, index, onViewDetails }) {
     const cardRef = useRef(null)
     const imageRef = useRef(null)
-    console.log(product)
+
     useEffect(() => {
         if (cardRef.current) {
             gsap.fromTo(
