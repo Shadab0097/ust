@@ -187,6 +187,52 @@ const products = [
       "Weight": "85 kg"
     }
   },
+  {
+    "id": 15,
+    "name": "Hydro Turbine",
+    "shortDescription": "High-efficiency water-to-energy conversion for hydroelectric power generation",
+    "description": "Industrial-grade Francis/Kaplan type hydro turbine designed for converting kinetic and potential energy of flowing water into mechanical rotational energy for electricity generation. Features precision-engineered runner blades, wicket gate control system, and robust construction for reliable operation in medium-head hydroelectric applications with variable flow conditions.",
+    "category": "Power Generation Equipment",
+    "images": [
+      "/assets/hydroTurbine/ht1.jpg",
+      "/assets/hydroTurbine/ht2.jpg",
+      "/assets/hydroTurbine/ht3.jpg",
+      "/assets/hydroTurbine/ht4.jpg",
+      "/assets/hydroTurbine/ht5.jpg",
+      "/assets/hydroTurbine/ht6.jpg",
+      "/assets/hydroTurbine/ht7.jpg",
+      "/assets/hydroTurbine/ht8.jpg"
+    ],
+    "model3D": "",
+    "features": [
+      "Precision-cast stainless steel runner with optimized blade geometry",
+      "Adjustable wicket gate system for flow regulation",
+      "Governor-controlled automatic operation",
+      "Draft tube for energy recovery and cavitation prevention",
+      "Spiral case for uniform water distribution",
+      "Thrust and guide bearing systems for smooth operation",
+      "Corrosion-resistant materials for marine environment",
+      "High-efficiency blade design for maximum energy extraction",
+      "Integrated monitoring and control systems",
+      "Maintenance-friendly modular construction"
+    ],
+    "specifications": {
+      "Turbine Type": "Francis/Kaplan Reaction Turbine",
+      "Power Output": "100 kW - 50 MW",
+      "Operating Head": "10-300 meters",
+      "Flow Rate": "0.5-100 m³/s",
+      "Efficiency": "85-95% peak efficiency",
+      "Rotational Speed": "75-1500 RPM",
+      "Runner Diameter": "0.5-8 meters",
+      "Number of Blades": "12-24 (Francis), 4-8 (Kaplan)",
+      "Material": "Cast/Forged Stainless Steel (SS316/SS410)",
+      "Operating Temperature": "0-40°C",
+      "Design Life": "40-50 years",
+      "Cavitation Index": "σ > 0.1-0.3 (design dependent)",
+      "Generator Coupling": "Direct drive or gear box coupling",
+      "Control System": "PLC-based with HMI interface"
+    }
+  },
 
   {
 
@@ -565,7 +611,148 @@ const products = [
       "Material Construction": "MS/SS contact parts",
       "Machine Weight": "150-5000 kg (model dependent)"
     }
+  },
+  {
+    "id": 12,
+    "name": "Blower Fan",
+    "shortDescription": "High-pressure centrifugal air movement for industrial applications",
+    "description": "Industrial-grade centrifugal blower fan designed for high-pressure air movement and ventilation applications. Features backward-curved impeller blades for maximum efficiency, robust construction for continuous operation, and variable speed control for precise airflow management in HVAC, material handling, and process ventilation systems.",
+    "category": "Air Handling Equipment",
+    "images": [
+      "/assets/blowerFan/bf1.jpg",
+      "/assets/blowerFan/bf2.jpg",
+      "/assets/blowerFan/bf3.jpg",
+      "/assets/blowerFan/bf4.jpg",
+      "/assets/blowerFan/bf5.jpg",
+      "/assets/blowerFan/bf6.jpg",
+      "/assets/blowerFan/bf7.jpg",
+      "/assets/blowerFan/bf8.jpg"
+    ],
+    "model3D": "",
+    "features": [
+      "High-efficiency backward-curved impeller design",
+      "Heavy-duty cast iron or aluminum construction",
+      "Direct drive motor mounting for reliability",
+      "Dynamically balanced impeller for vibration-free operation",
+      "Thermal protection with auto-restart capability",
+      "Double-shielded shaft bearings for extended life",
+      "Compact design for space-efficient installation",
+      "Wide voltage and frequency range compatibility",
+      "Dust-proof shaft seal for contamination protection",
+      "Sound-dampened housing for reduced noise levels"
+    ],
+    "specifications": {
+      "Motor Power": "0.5-50 HP (0.37-37 kW)",
+      "Air Flow Rate": "200-52000 CFM (340-88400 m³/h)",
+      "Static Pressure": "2-10 inches WG (500-2500 Pa)",
+      "Fan Speed": "1450-3600 RPM",
+      "Impeller Diameter": "200-1000 mm",
+      "Inlet Size": "150-800 mm",
+      "Outlet Size": "125-750 mm",
+      "Voltage": "220V/380V/415V, Single/Three Phase",
+      "Frequency": "50/60 Hz",
+      "Noise Level": "58-85 dB(A)",
+      "Operating Temperature": "-20°C to +80°C",
+      "Material": "Cast Iron/Aluminum housing, Steel impeller",
+      "Efficiency": "Up to 85%",
+      "Weight": "50-2500 kg (model dependent)"
+    }
   }
+  ,
+  {
+    "id": 13,
+    "name": "Tensile Shed",
+    "shortDescription": "Aesthetic membrane canopy structures for weather protection",
+    "description": "Modern tensile fabric structure designed for versatile outdoor coverage including car parking, walkways, and recreational areas. Features high-strength membrane materials stretched over steel framework to create elegant, curved architectural forms that provide excellent weather protection while allowing natural light transmission.",
+    "category": "Architectural Structures",
+    "images": [
+      "/assets/tensilShed/ts1.jpg",
+      "/assets/tensilShed/ts2.jpg",
+      "/assets/tensilShed/ts3.jpg",
+      "/assets/tensilShed/ts4.jpg",
+      "/assets/tensilShed/ts5.jpg",
+      "/assets/tensilShed/ts6.jpg",
+      "/assets/tensilShed/ts7.jpg",
+
+    ],
+    "model3D": "",
+    "features": [
+      "High-strength tensile fabric membrane construction",
+      "UV-resistant and weatherproof material coating",
+      "Galvanized steel framework with powder coating",
+      "Self-cleaning fabric surface with anti-fungal properties",
+      "Natural light transmission while blocking harmful UV rays",
+      "Wind load resistance up to 169.2 km/h (47 m/s)",
+      "Fire retardant membrane meeting B1/DIN 4102 standards",
+      "Modular design for easy installation and expansion",
+      "Temperature resistance from -50°C to +70°C",
+      "Low maintenance with excellent durability"
+    ],
+    "specifications": {
+      "Membrane Material": "PVC/PVDF/PTFE coated polyester fabric",
+      "Fabric Weight": "700-1500 GSM",
+      "Fabric Thickness": "0.05-0.82 mm",
+      "Tensile Strength": "2400-4200 N/5cm (warp/weft)",
+      "Tear Strength": "270-580 N",
+      "Frame Material": "Galvanized steel (IS 1239 standard)",
+      "Steel Grade": "YST240 as per IS 800",
+      "Wind Load Capacity": "1.38 kN/m² (44 m/s)",
+      "Span Capability": "Up to 60 meters clear span",
+      "Color Options": "White, Red, Blue, Green, Yellow, Custom",
+      "Fire Rating": "B1/DIN 4102 compliant",
+      "Warranty": "7-15 years on membrane",
+      "Installation Cost": "₹300-800 per sq ft",
+      "Maintenance": "Self-cleaning, minimal upkeep required"
+    }
+  }
+  ,
+  {
+    "id": 14,
+    "name": "Seed Cleaning Machine",
+    "shortDescription": "Multi-stage grain and seed processing for superior quality output",
+    "description": "Advanced multi-stage seed and grain cleaning machine designed for comprehensive removal of impurities including stones, dust, chaff, damaged seeds, and foreign materials. Features precision screening, aspiration systems, and gravity separation technology to deliver clean, graded seeds meeting industry standards for agricultural processing and export applications.",
+    "category": "Seed Processing Equipment",
+    "images": [
+      "/assets/seedCleaning/sc1.jpg",
+      "/assets/seedCleaning/sc2.jpg",
+      "/assets/seedCleaning/sc3.jpg",
+      "/assets/seedCleaning/sc4.jpg",
+
+    ],
+    "model3D": "",
+    "features": [
+      "Multi-stage cleaning with pre-cleaning and fine cleaning chambers",
+      "Advanced aspiration system with cyclone dust collection",
+      "Precision screening with interchangeable sieves for various crops",
+      "Gravity separation for density-based sorting",
+      "Magnetic separator for ferrous material removal",
+      "Variable speed control for different grain types",
+      "Dust-tight construction with minimal product loss",
+      "Easy maintenance with accessible cleaning points",
+      "Automatic feed regulation system",
+      "Multi-outlet discharge for different grade separation"
+    ],
+    "specifications": {
+      "Processing Capacity": "200-5000 kg/hr (varies by model)",
+      "Motor Power": "3-25 HP total system",
+      "Cleaning Efficiency": "95-99% impurity removal",
+      "Power Consumption": "3-17 kWh",
+      "Voltage": "415V, 3-Phase, 50Hz",
+      "Automation Grade": "Semi-Automatic to Fully Automatic",
+      "Number of Cleaning Stages": "2-4 stages",
+      "Screen Types": "Round and rectangular perforations",
+      "Air Flow System": "Centrifugal blower with adjustable dampers",
+      "Dimensions (LxWxH)": "4-15 x 2-8 x 3-12 meters",
+      "Material Construction": "MS body with powder coating",
+      "Suitable Crops": "Wheat, Rice, Pulses, Cumin, Sesame, Mustard",
+      "Weight": "500-5000 kg (model dependent)",
+      "Recovery Rate": "80-95% of head pulses"
+    }
+  },
+
+
+
+
 
 
 

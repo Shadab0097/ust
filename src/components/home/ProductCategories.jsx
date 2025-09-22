@@ -129,6 +129,7 @@ import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionHeading from '../ui/SectionHeading'
+import products from '../../data/products'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -204,7 +205,7 @@ function ProductCategories() {
           ref={categoriesRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {categories.map((category, index) => (
+          {products.slice(0, 6).map((category, index) => (
             <Link
               key={index}
               to="/products"
@@ -213,7 +214,7 @@ function ProductCategories() {
               <div className="card overflow-hidden h-full">
                 <div className="h-48 overflow-hidden">
                   <img
-                    src={category.images ? category.images[0] : category.image}
+                    src={category.images ? category.images[0] : category.images}
                     alt={category.name}
                     className="w-full h-full object-cover transition-transform duration-700 
                               group-hover:scale-110"
@@ -221,7 +222,7 @@ function ProductCategories() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2">{category.name}</h3>
-                  <p className="text-gray-600 mb-4">{category.description}</p>
+                  <p className="text-gray-600 mb-4">{category.shortDescription}</p>
                   <div className="flex items-center text-primary-600 transition-transform duration-300 
                                  group-hover:translate-x-2">
                     <span className="text-sm font-medium">Browse Category</span>

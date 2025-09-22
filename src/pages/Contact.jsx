@@ -684,6 +684,7 @@ function Contact() {
                       <p className="text-gray-600">
                         +91 8048970369<br />
                         +91 9560983082
+                        +91 9871627800
                       </p>
                     </div>
                   </div>
