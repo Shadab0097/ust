@@ -157,6 +157,7 @@ const products = [
   {
     id: 6,
     name: "Paint Shop Line",
+    slug: "paint-shop-line",
     shortDescription: "Robust solution for pallet transportation",
     description: "Heavy-duty pallet trolley designed for efficient transportation of heavy palletized loads within paint shops and industrial facilities. Features a hydraulic lift system, reinforced forks, ergonomic handle, and overload protection valve—built for smooth, safe material handling.",
     category: "Handling Trolleys",
@@ -188,12 +189,13 @@ const products = [
     }
   },
   {
-    "id": 15,
-    "name": "Hydro Turbine",
-    "shortDescription": "High-efficiency water-to-energy conversion for hydroelectric power generation",
-    "description": "Industrial-grade Francis/Kaplan type hydro turbine designed for converting kinetic and potential energy of flowing water into mechanical rotational energy for electricity generation. Features precision-engineered runner blades, wicket gate control system, and robust construction for reliable operation in medium-head hydroelectric applications with variable flow conditions.",
-    "category": "Power Generation Equipment",
-    "images": [
+    id: 15,
+    name: "Hydro Turbine",
+    slug: "hydro-turbine",
+    shortDescription: "High-efficiency water-to-energy conversion for hydroelectric power generation",
+    description: "Industrial-grade Francis/Kaplan type hydro turbine designed for converting kinetic and potential energy of flowing water into mechanical rotational energy for electricity generation. Features precision-engineered runner blades, wicket gate control system, and robust construction for reliable operation in medium-head hydroelectric applications with variable flow conditions.",
+    category: "Power Generation Equipment",
+    images: [
       "/assets/hydroTurbine/ht1.jpg",
       "/assets/hydroTurbine/ht2.jpg",
       "/assets/hydroTurbine/ht3.jpg",
@@ -203,8 +205,8 @@ const products = [
       "/assets/hydroTurbine/ht7.jpg",
       "/assets/hydroTurbine/ht8.jpg"
     ],
-    "model3D": "",
-    "features": [
+    model3D: "",
+    features: [
       "Precision-cast stainless steel runner with optimized blade geometry",
       "Adjustable wicket gate system for flow regulation",
       "Governor-controlled automatic operation",
@@ -216,7 +218,7 @@ const products = [
       "Integrated monitoring and control systems",
       "Maintenance-friendly modular construction"
     ],
-    "specifications": {
+    specifications: {
       "Turbine Type": "Francis/Kaplan Reaction Turbine",
       "Power Output": "100 kW - 50 MW",
       "Operating Head": "10-300 meters",
@@ -233,11 +235,10 @@ const products = [
       "Control System": "PLC-based with HMI interface"
     }
   },
-
   {
-
     id: 1,
     name: "Dust Collector System",
+    slug: "dust-collector-system",
     shortDescription: "High‑performance industrial air filtration solution",
     description: "Robust industrial dust collector engineered for heavy‑duty operations. Features a modular steel housing, cartridge or bag‑filter media, and a powerful fan to capture and remove airborne particulates effectively, safeguarding equipment, personnel, and environmental compliance.",
     category: "Air Filtration Systems",
@@ -252,7 +253,7 @@ const products = [
       "/assets/dustCollector/dimg8.jpg",
       "/assets/dustCollector/dimg9.jpg"
     ],
-    model3D: "", // Path to GLTF/GLB model if available
+    model3D: "",
     features: [
       "Modular steel housing with powder‑coat finish",
       "Choice of cartridge or bag filter media (≥99% capture efficiency)",
@@ -271,10 +272,10 @@ const products = [
       "Noise Level": "Low‑noise design options available"
     }
   },
-
   {
     id: 2,
     name: "Ribbon Blender Machine",
+    slug: "ribbon-blender-machine",
     shortDescription: "Efficient industrial mixer for powders, granules & semi‑dry pastes",
     description: "Industrial ribbon blender engineered for uniform mixing of dry powders, granules, and low‑viscosity pastes. Features inner and outer helical ribbons housed in a U‑shaped stainless steel trough, providing thorough blending via counter‑current motion, ideal for food, chemical, pharmaceutical, and cosmetic applications.",
     category: "Industrial Mixers",
@@ -302,11 +303,11 @@ const products = [
       "Power": "1.5 kW–30 kW (depending on capacity)",
       "Material": "304 stainless steel, GMP‑compliant"
     }
-  }
-  ,
+  },
   {
     id: 3,
     name: "Screw Conveyor",
+    slug: "screw-conveyor",
     shortDescription: "Precision material dispensing for production lines",
     description: "Industrial screw (auger) conveyor engineered for reliable, continuous handling and metering of powders, granules, semi-solids, and slow-flowing materials. Equipped with a robust rotating helical screw within a U‑trough or tubular housing, it delivers smooth, variable-rate flow control ideal for production-line integration.",
     category: "Hopper Machines",
@@ -338,11 +339,11 @@ const products = [
       "Control": "Manual or PLC-driven automation",
       "Weight": "≈120 kg"
     }
-  }
-  ,
+  },
   {
     id: 4,
     name: "Scissor Lift",
+    slug: "scissor-lift",
     shortDescription: "Versatile scissor lift trolley for ergonomic handling",
     description: "Heavy-duty scissor lift cart designed to elevate and transport tools, components, or equipment efficiently. Features a robust steel frame, hydraulically or mechanically powered X‑bar mechanism, and smooth-rolling casters, providing adjustable height positions and safe load handling.",
     category: "Storage & Lift Carts",
@@ -372,11 +373,11 @@ const products = [
       "Shelves": "4 adjustable",
       "Drawers": "3 lockable"
     }
-  }
-  ,
+  },
   {
     id: 5,
     name: "Water Curtain Paint Booth",
+    slug: "water-curtain-paint-booth",
     shortDescription: "Efficient overspray control and air purification",
     description: "Industrial-grade water curtain spray booth designed for high-volume painting applications. Utilizes a cascading water wall to scrub overspray particles from the paint-laden air, offering superior particle containment, consistent finishes, and environmental compliance.",
     category: "Paint Spray Booths",
@@ -407,20 +408,20 @@ const products = [
       "Water Flow Rate": "200–660 L/min",
       "Booth Weight": "300–1,050 kg (varies by model)"
     }
-  }
-  ,
+  },
   {
-    "id": 7,
-    "name": "Atta Chakki Machine",
-    "shortDescription": "Traditional stone-based flour grinding for fresh, nutritious flour",
-    "description": "Commercial-grade atta chakki machine designed for high-quality flour production from wheat, rice, maize, and other grains. Features traditional stone grinding technology that preserves nutritional value and natural taste, with robust construction for continuous commercial operation and consistent flour quality.",
-    "category": "Flour Milling Equipment",
-    "images": [
+    id: 7,
+    name: "Atta Chakki Machine",
+    slug: "atta-chakki-machine",
+    shortDescription: "Traditional stone-based flour grinding for fresh, nutritious flour",
+    description: "Commercial-grade atta chakki machine designed for high-quality flour production from wheat, rice, maize, and other grains. Features traditional stone grinding technology that preserves nutritional value and natural taste, with robust construction for continuous commercial operation and consistent flour quality.",
+    category: "Flour Milling Equipment",
+    images: [
       "/assets/attaChakki/ac1.jpg",
       "/assets/attaChakki/ac2.jpg",
     ],
-    "model3D": "",
-    "features": [
+    model3D: "",
+    features: [
       "Traditional stone grinding mechanism for natural flour texture",
       "Heavy-duty motor with copper winding for continuous operation",
       "Adjustable grinding settings from coarse to fine",
@@ -430,7 +431,7 @@ const products = [
       "Robust MS body construction with color-coated finish",
       "Multi-grain processing capability (wheat, rice, maize, millets)"
     ],
-    "specifications": {
+    specifications: {
       "Motor Power": "1 HP - 25 HP (varies by model)",
       "Production Capacity": "8-200 kg/hr",
       "Stone Size": "14-30 inches",
@@ -444,20 +445,20 @@ const products = [
     }
   },
   {
-    "id": 8,
-    "name": "Sheet Rolling Machine",
-    "shortDescription": "3-roll pyramid type for precise plate bending and forming",
-    "description": "Industrial-grade 3-roll pyramid type sheet rolling machine designed for forming cylindrical, conical, and curved shapes from metal plates. Features asymmetrical roller configuration with upper main drive roller and adjustable lower rollers for versatile plate forming applications in fabrication and manufacturing industries.",
-    "category": "Metal Forming Equipment",
-    "images": [
+    id: 8,
+    name: "Sheet Rolling Machine",
+    slug: "sheet-rolling-machine",
+    shortDescription: "3-roll pyramid type for precise plate bending and forming",
+    description: "Industrial-grade 3-roll pyramid type sheet rolling machine designed for forming cylindrical, conical, and curved shapes from metal plates. Features asymmetrical roller configuration with upper main drive roller and adjustable lower rollers for versatile plate forming applications in fabrication and manufacturing industries.",
+    category: "Metal Forming Equipment",
+    images: [
       "/assets/sheetRolling/sr1.jpg",
       "/assets/sheetRolling/sr2.jpg",
       "/assets/sheetRolling/sr3.jpg",
       "/assets/sheetRolling/sr4.jpg",
-
     ],
-    "model3D": "",
-    "features": [
+    model3D: "",
+    features: [
       "3-roll pyramid type asymmetrical design for superior forming",
       "Upper roller main drive with vertical lifting capability",
       "Two lower rollers with independent horizontal movement",
@@ -469,7 +470,7 @@ const products = [
       "Wide range of plate thickness handling capability",
       "Emergency stop safety features"
     ],
-    "specifications": {
+    specifications: {
       "Max Plate Thickness": "3-50 mm (model dependent)",
       "Max Plate Width": "1500-6000 mm",
       "Min Rolling Diameter": "300-1200 mm",
@@ -484,20 +485,20 @@ const products = [
     }
   },
   {
-    "id": 9,
-    "name": "Telescopic Belt Conveyor",
-    "shortDescription": "Extendable loading system for efficient truck and container operations",
-    "description": "Multi-stage telescopic belt conveyor system designed for rapid loading and unloading of trucks, containers, and warehouses. Features hydraulic extension and retraction capabilities with adjustable height settings, enabling operators to reach deep into vehicles while minimizing manual handling and improving operational efficiency.",
-    "category": "Material Handling Equipment",
-    "images": [
+    id: 9,
+    name: "Telescopic Belt Conveyor",
+    slug: "telescopic-belt-conveyor",
+    shortDescription: "Extendable loading system for efficient truck and container operations",
+    description: "Multi-stage telescopic belt conveyor system designed for rapid loading and unloading of trucks, containers, and warehouses. Features hydraulic extension and retraction capabilities with adjustable height settings, enabling operators to reach deep into vehicles while minimizing manual handling and improving operational efficiency.",
+    category: "Material Handling Equipment",
+    images: [
       "/assets/telescopicBelt/ts1.jpg",
       "/assets/telescopicBelt/ts2.jpg",
       "/assets/telescopicBelt/ts3.jpg",
       "/assets/telescopicBelt/ts4.jpg",
-
     ],
-    "model3D": "",
-    "features": [
+    model3D: "",
+    features: [
       "Multi-stage telescopic extension up to 21 meters",
       "Hydraulic height adjustment system (up to 3 meters lift)",
       "Bi-directional belt movement for loading/unloading",
@@ -509,7 +510,7 @@ const products = [
       "Heavy-duty steel frame construction",
       "Remote control operation capability"
     ],
-    "specifications": {
+    specifications: {
       "Number of Stages": "3-5 stages",
       "Fixed Length": "4-16 meters",
       "Extension Length": "5.4-22 meters",
@@ -525,24 +526,23 @@ const products = [
       "Voltage": "220V/380V/415V, 50/60Hz",
       "Control System": "PLC with touch panel interface"
     }
-  }
-  ,
+  },
   {
-    "id": 10,
-    "name": "Vibro De-Stoner",
-    "shortDescription": "Precision stone and heavy impurity removal from grains and pulses",
-    "description": "Advanced vibratory destoning machine designed for efficient separation of stones, glass, metal fragments, and other heavy impurities from grains, pulses, and seeds. Utilizes specific gravity differences and controlled air flow with reciprocating motion to achieve superior cleaning performance in grain processing applications.",
-    "category": "Grain Cleaning Equipment",
-    "images": [
+    id: 10,
+    name: "Vibro De-Stoner",
+    slug: "vibro-de-stoner",
+    shortDescription: "Precision stone and heavy impurity removal from grains and pulses",
+    description: "Advanced vibratory destoning machine designed for efficient separation of stones, glass, metal fragments, and other heavy impurities from grains, pulses, and seeds. Utilizes specific gravity differences and controlled air flow with reciprocating motion to achieve superior cleaning performance in grain processing applications.",
+    category: "Grain Cleaning Equipment",
+    images: [
       "/assets/vibroDeStoner/vd1.jpg",
       "/assets/vibroDeStoner/vd2.jpg",
       "/assets/vibroDeStoner/vd3.jpg",
       "/assets/vibroDeStoner/vd4.jpg",
       "/assets/vibroDeStoner/vd5.jpg",
-
     ],
-    "model3D": "",
-    "features": [
+    model3D: "",
+    features: [
       "Fluidized air bed technology for precise stratification",
       "Adjustable deck inclination for optimal separation efficiency",
       "Transparent viewing window for process monitoring",
@@ -554,7 +554,7 @@ const products = [
       "Dust-free operation with enclosed design",
       "Multiple discharge outlets for different fractions"
     ],
-    "specifications": {
+    specifications: {
       "Processing Capacity": "1-12 TPH (varies by model)",
       "Motor Configuration": "Main: 5-10 HP, Vibro: 0.5-1 HP x 2",
       "Screen Deck Size": "950-1340 mm width",
@@ -568,23 +568,22 @@ const products = [
       "Material": "MS body with SS contact parts",
       "Operating Mode": "Automatic with manual controls"
     }
-  }
-  ,
+  },
   {
-    "id": 11,
-    "name": "Hammer Mill",
-    "shortDescription": "High-speed crushing and grinding for feed and grain processing",
-    "description": "Industrial hammer mill designed for crushing and grinding various materials including grains, feed components, agricultural products, and biomass. Features high-speed rotating hammers that reduce material size through multiple impact crushing, with adjustable screen perforations for precise particle size control in feed mills and processing plants.",
-    "category": "Crushing & Grinding Equipment",
-    "images": [
+    id: 11,
+    name: "Hammer Mill",
+    slug: "hammer-mill",
+    shortDescription: "High-speed crushing and grinding for feed and grain processing",
+    description: "Industrial hammer mill designed for crushing and grinding various materials including grains, feed components, agricultural products, and biomass. Features high-speed rotating hammers that reduce material size through multiple impact crushing, with adjustable screen perforations for precise particle size control in feed mills and processing plants.",
+    category: "Crushing & Grinding Equipment",
+    images: [
       "/assets/hammerMill/hm1.jpg",
       "/assets/hammerMill/hm2.jpg",
       "/assets/hammerMill/hm3.jpg",
       "/assets/hammerMill/hmi4.jpg",
-
     ],
-    "model3D": "",
-    "features": [
+    model3D: "",
+    features: [
       "High-speed rotating hammer system for impact crushing",
       "Interchangeable perforated screens for size control",
       "Free-swinging hammers to minimize wear and blocking",
@@ -596,7 +595,7 @@ const products = [
       "Robust steel construction with wear-resistant linings",
       "Variable speed control for different materials"
     ],
-    "specifications": {
+    specifications: {
       "Motor Power": "5-100 HP (3.7-75 kW)",
       "Production Capacity": "200-3000 kg/hr",
       "Hammer Tip Speed": "80-100 m/sec",
@@ -613,12 +612,13 @@ const products = [
     }
   },
   {
-    "id": 12,
-    "name": "Blower Fan",
-    "shortDescription": "High-pressure centrifugal air movement for industrial applications",
-    "description": "Industrial-grade centrifugal blower fan designed for high-pressure air movement and ventilation applications. Features backward-curved impeller blades for maximum efficiency, robust construction for continuous operation, and variable speed control for precise airflow management in HVAC, material handling, and process ventilation systems.",
-    "category": "Air Handling Equipment",
-    "images": [
+    id: 12,
+    name: "Blower Fan",
+    slug: "blower-fan",
+    shortDescription: "High-pressure centrifugal air movement for industrial applications",
+    description: "Industrial-grade centrifugal blower fan designed for high-pressure air movement and ventilation applications. Features backward-curved impeller blades for maximum efficiency, robust construction for continuous operation, and variable speed control for precise airflow management in HVAC, material handling, and process ventilation systems.",
+    category: "Air Handling Equipment",
+    images: [
       "/assets/blowerFan/bf1.jpg",
       "/assets/blowerFan/bf2.jpg",
       "/assets/blowerFan/bf3.jpg",
@@ -628,8 +628,8 @@ const products = [
       "/assets/blowerFan/bf7.jpg",
       "/assets/blowerFan/bf8.jpg"
     ],
-    "model3D": "",
-    "features": [
+    model3D: "",
+    features: [
       "High-efficiency backward-curved impeller design",
       "Heavy-duty cast iron or aluminum construction",
       "Direct drive motor mounting for reliability",
@@ -641,7 +641,7 @@ const products = [
       "Dust-proof shaft seal for contamination protection",
       "Sound-dampened housing for reduced noise levels"
     ],
-    "specifications": {
+    specifications: {
       "Motor Power": "0.5-50 HP (0.37-37 kW)",
       "Air Flow Rate": "200-52000 CFM (340-88400 m³/h)",
       "Static Pressure": "2-10 inches WG (500-2500 Pa)",
@@ -657,15 +657,15 @@ const products = [
       "Efficiency": "Up to 85%",
       "Weight": "50-2500 kg (model dependent)"
     }
-  }
-  ,
+  },
   {
-    "id": 13,
-    "name": "Tensile Shed",
-    "shortDescription": "Aesthetic membrane canopy structures for weather protection",
-    "description": "Modern tensile fabric structure designed for versatile outdoor coverage including car parking, walkways, and recreational areas. Features high-strength membrane materials stretched over steel framework to create elegant, curved architectural forms that provide excellent weather protection while allowing natural light transmission.",
-    "category": "Architectural Structures",
-    "images": [
+    id: 13,
+    name: "Tensile Shed",
+    slug: "tensile-shed",
+    shortDescription: "Aesthetic membrane canopy structures for weather protection",
+    description: "Modern tensile fabric structure designed for versatile outdoor coverage including car parking, walkways, and recreational areas. Features high-strength membrane materials stretched over steel framework to create elegant, curved architectural forms that provide excellent weather protection while allowing natural light transmission.",
+    category: "Architectural Structures",
+    images: [
       "/assets/tensilShed/ts1.jpg",
       "/assets/tensilShed/ts2.jpg",
       "/assets/tensilShed/ts3.jpg",
@@ -673,10 +673,9 @@ const products = [
       "/assets/tensilShed/ts5.jpg",
       "/assets/tensilShed/ts6.jpg",
       "/assets/tensilShed/ts7.jpg",
-
     ],
-    "model3D": "",
-    "features": [
+    model3D: "",
+    features: [
       "High-strength tensile fabric membrane construction",
       "UV-resistant and weatherproof material coating",
       "Galvanized steel framework with powder coating",
@@ -688,7 +687,7 @@ const products = [
       "Temperature resistance from -50°C to +70°C",
       "Low maintenance with excellent durability"
     ],
-    "specifications": {
+    specifications: {
       "Membrane Material": "PVC/PVDF/PTFE coated polyester fabric",
       "Fabric Weight": "700-1500 GSM",
       "Fabric Thickness": "0.05-0.82 mm",
@@ -704,23 +703,22 @@ const products = [
       "Installation Cost": "₹300-800 per sq ft",
       "Maintenance": "Self-cleaning, minimal upkeep required"
     }
-  }
-  ,
+  },
   {
-    "id": 14,
-    "name": "Seed Cleaning Machine",
-    "shortDescription": "Multi-stage grain and seed processing for superior quality output",
-    "description": "Advanced multi-stage seed and grain cleaning machine designed for comprehensive removal of impurities including stones, dust, chaff, damaged seeds, and foreign materials. Features precision screening, aspiration systems, and gravity separation technology to deliver clean, graded seeds meeting industry standards for agricultural processing and export applications.",
-    "category": "Seed Processing Equipment",
-    "images": [
+    id: 14,
+    name: "Seed Cleaning Machine",
+    slug: "seed-cleaning-machine",
+    shortDescription: "Multi-stage grain and seed processing for superior quality output",
+    description: "Advanced multi-stage seed and grain cleaning machine designed for comprehensive removal of impurities including stones, dust, chaff, damaged seeds, and foreign materials. Features precision screening, aspiration systems, and gravity separation technology to deliver clean, graded seeds meeting industry standards for agricultural processing and export applications.",
+    category: "Seed Processing Equipment",
+    images: [
       "/assets/seedCleaning/sc1.jpg",
       "/assets/seedCleaning/sc2.jpg",
       "/assets/seedCleaning/sc3.jpg",
       "/assets/seedCleaning/sc4.jpg",
-
     ],
-    "model3D": "",
-    "features": [
+    model3D: "",
+    features: [
       "Multi-stage cleaning with pre-cleaning and fine cleaning chambers",
       "Advanced aspiration system with cyclone dust collection",
       "Precision screening with interchangeable sieves for various crops",
@@ -732,7 +730,7 @@ const products = [
       "Automatic feed regulation system",
       "Multi-outlet discharge for different grade separation"
     ],
-    "specifications": {
+    specifications: {
       "Processing Capacity": "200-5000 kg/hr (varies by model)",
       "Motor Power": "3-25 HP total system",
       "Cleaning Efficiency": "95-99% impurity removal",
@@ -749,14 +747,6 @@ const products = [
       "Recovery Rate": "80-95% of head pulses"
     }
   },
-
-
-
-
-
-
-
-
 ];
 
 export default products;

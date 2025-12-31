@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Disallow admin or private routes if you have any in the future
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://www.ustenterprises.in/sitemap.xml

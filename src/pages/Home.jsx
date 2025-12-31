@@ -1,44 +1,52 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom' // Import Navigation Hook
+import SEO from '../components/seo/SEO' // Import your SEO component
 import HeroSection from '../components/home/HeroSection'
 import ProductCategories from '../components/home/ProductCategories'
 import AboutPreview from '../components/home/AboutPreview'
 import FeaturedProducts from '../components/home/FeaturedProducts'
-import ProductModal from '../components/ui/ProductModal'
 
 function Home() {
-  const [selectedProduct, setSelectedProduct] = useState(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const navigate = useNavigate()
 
-  // Update page title
-  useEffect(() => {
-    document.title = 'U.S.T Enterprises - High-Strength Industrial Solutions'
-  }, [])
+  // SEO Schema (Social Media removed as requested)
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "U.S.T Enterprises",
+    "url": "https://www.ustenterprises.in", // Ensure this matches your live domain
+    "logo": "https://www.ustenterprises.in/assets/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": ["+91 8048970369", "+91 9560983082", "+91 9871627800"],
+      "contactType": "sales",
+      "areaServed": "IN"
+    }
+  };
 
-  // Handle product click from featured products
+  // Handle product click - Navigate to the Detail Page
   const handleProductClick = (product) => {
-    // Use the actual product data directly
-    setSelectedProduct(product)
-    setIsModalOpen(true)
-  }
-
-  // Close modal
-  const handleCloseModal = () => {
-    setIsModalOpen(false)
+    navigate(`/products/${product.slug}`)
+    window.scrollTo(0, 0)
   }
 
   return (
     <div>
+      {/* SEO Injection */}
+      <SEO
+        title="Industrial Manufacturing & Engineering Solutions"
+        description="U.S.T Enterprises is a leading manufacturer of heavy industrial machinery, including Ribbon Blenders, Hydro Turbines, and Dust Collection Systems."
+        keywords="Industrial Machinery, Custom Fabrication, Engineering Solutions, U.S.T Enterprises, Heavy Duty Manufacturing India"
+        schema={orgSchema}
+      />
+
       <HeroSection />
+
+      {/* Pass the navigation handler */}
       <FeaturedProducts onProductClick={handleProductClick} />
+
       <ProductCategories />
       <AboutPreview />
-
-      {/* Product Detail Modal */}
-      <ProductModal
-        product={selectedProduct}
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-      />
     </div>
   )
 }

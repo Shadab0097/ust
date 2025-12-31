@@ -1,28 +1,27 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom' // Import hook for navigation
 import SectionHeading from '../components/ui/SectionHeading'
 import ProductCard from '../components/ui/ProductCard'
-import ProductModal from '../components/ui/ProductModal'
 import productsData from '../data/products'
 
 function Products() {
-  const [selectedProduct, setSelectedProduct] = useState(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const navigate = useNavigate() // Initialize navigation
   const [categories, setCategories] = useState([])
   const [activeCategory, setActiveCategory] = useState('All')
   const [products, setProducts] = useState([])
-  
+
   // Update page title
   useEffect(() => {
     document.title = 'Products - U.S.T Enterprises'
   }, [])
-  
+
   // Extract unique categories and set initial products
   useEffect(() => {
     const uniqueCategories = ['All', ...new Set(productsData.map(product => product.category))]
     setCategories(uniqueCategories)
     setProducts(productsData)
   }, [])
-  
+
   // Filter products by category
   const filterProducts = (category) => {
     setActiveCategory(category)
@@ -32,25 +31,22 @@ function Products() {
       setProducts(productsData.filter(product => product.category === category))
     }
   }
-  
-  // Handle product click and open modal
+
+  // Handle product click - Navigate to the Detail Page using the slug
   const handleProductClick = (product) => {
-    setSelectedProduct(product)
-    setIsModalOpen(true)
+    // Navigate to the dynamic route defined in your App.js
+    navigate(`/products/${product.slug}`)
+    // Scroll to top to ensure the user starts at the top of the new page
+    window.scrollTo(0, 0)
   }
-  
-  // Close modal
-  const handleCloseModal = () => {
-    setIsModalOpen(false)
-  }
-  
+
   return (
     <div>
       {/* Hero Section */}
       <div className="relative bg-primary-800 py-32">
-        <div 
+        <div
           className="absolute inset-0 opacity-20"
-          style={{ 
+          style={{
             backgroundImage: 'url(https://images.pexels.com/photos/2760243/pexels-photo-2760243.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -66,7 +62,7 @@ function Products() {
           </div>
         </div>
       </div>
-      
+
       {/* Products Section */}
       <section className="section bg-white">
         <div className="container-custom">
@@ -75,28 +71,27 @@ function Products() {
             subtitle="Manufactured with high-quality materials and advanced technology"
             centered
           />
-          
+
           {/* Category Filters */}
           <div className="flex flex-wrap gap-3 mb-12 justify-center">
             {categories.map((category, index) => (
-              <button 
+              <button
                 key={index}
                 onClick={() => filterProducts(category)}
-                className={`px-4 py-2 rounded-full transition-all duration-300 ${
-                  activeCategory === category
-                    ? 'bg-primary-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                className={`px-4 py-2 rounded-full transition-all duration-300 ${activeCategory === category
+                  ? 'bg-primary-600 text-white'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
               >
                 {category}
               </button>
             ))}
           </div>
-          
+
           {/* Products Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product) => (
-              <ProductCard 
+              <ProductCard
                 key={product.id}
                 product={product}
                 onClick={handleProductClick}
@@ -105,7 +100,7 @@ function Products() {
           </div>
         </div>
       </section>
-      
+
       {/* Custom Solutions Section */}
       <section className="section bg-gray-50">
         <div className="container-custom">
@@ -115,11 +110,11 @@ function Products() {
                 Custom Solutions
               </h2>
               <p className="text-gray-700 mb-6">
-                Beyond our standard product line, we specialize in designing and manufacturing 
+                Beyond our standard product line, we specialize in designing and manufacturing
                 custom industrial equipment to meet your specific requirements.
               </p>
               <p className="text-gray-700 mb-8">
-                Our experienced team will work with you to understand your needs and create a 
+                Our experienced team will work with you to understand your needs and create a
                 tailored solution that perfectly fits your application.
               </p>
               <div className="space-y-4">
@@ -134,7 +129,7 @@ function Products() {
                     <p className="text-gray-600">Tailored solutions for your unique operational requirements</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-4 mt-1">
                     <svg className="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -146,7 +141,7 @@ function Products() {
                     <p className="text-gray-600">Options for various grades of steel and finishes based on your needs</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center mr-4 mt-1">
                     <svg className="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -160,28 +155,21 @@ function Products() {
                 </div>
               </div>
             </div>
-            
+
             <div className="relative">
-              <img 
-                src="https://images.pexels.com/photos/175039/pexels-photo-175039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+              <img
+                src="https://images.pexels.com/photos/175039/pexels-photo-175039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                 alt="Custom manufacturing"
                 className="rounded-2xl shadow-lg"
               />
               <div className="absolute -top-6 -left-6 md:-top-8 md:-left-8 bg-accent-500 text-white 
-                           rounded-2xl py-3 px-6 shadow-lg">
+                            rounded-2xl py-3 px-6 shadow-lg">
                 <p className="text-xl md:text-2xl font-semibold">Custom Built</p>
               </div>
             </div>
           </div>
         </div>
       </section>
-      
-      {/* Product Detail Modal */}
-      <ProductModal 
-        product={selectedProduct}
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-      />
     </div>
   )
 }

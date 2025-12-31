@@ -4,19 +4,42 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionHeading from '../components/ui/SectionHeading'
 import ClientsSection from './ClientCraousal'
 import WhyChooseUs from './WhyChooseUs'
+import SEO from '../components/seo/SEO' // Import SEO Component
 
 gsap.registerPlugin(ScrollTrigger)
 
 function About() {
   const timelineRef = useRef(null)
 
-  // Update page title
-  useEffect(() => {
-    document.title = 'About Us - U.S.T Enterprises'
-  }, [])
+  // NOTE: document.title useEffect removed because SEO component handles it now.
+
+  // --- Define SEO Schema for Company History ---
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "U.S.T Enterprises",
+    "url": "https://www.ustenterprises.in/about",
+    "logo": "https://www.ustenterprises.in/assets/logo.png",
+    "foundingDate": "1970",
+    "founder": {
+      "@type": "Person",
+      "name": "Mr. Usman"
+    },
+    "description": "Manufacturer of Handling Trolleys, Industrial Hoods, Hopper Machines, and Storage Solutions based in Gurgaon, India.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Gurgaon",
+      "addressRegion": "Haryana",
+      "addressCountry": "IN"
+    },
+    "awards": ["ISO 9001 Certified"],
+    "sameAs": [
+      // If you have LinkedIn or Indiamart links, add them here
+      "https://www.indiamart.com/ust-enterprises/"
+    ]
+  };
 
   // Animate timeline entries
-  // Update the animation useEffect
   useEffect(() => {
     if (timelineRef.current) {
       const timelineEntries = timelineRef.current.querySelectorAll('.timeline-entry')
@@ -67,6 +90,7 @@ function About() {
       });
     }
   }, [])
+
   const timelineEvents = [
     {
       year: '1970',
@@ -102,6 +126,15 @@ function About() {
 
   return (
     <div>
+      {/* --- Inject SEO Component --- */}
+      <SEO
+        title="About U.S.T Enterprises | Industrial Manufacturing Excellence Since 1970"
+        description="Learn about U.S.T Enterprises, a premier industrial equipment manufacturer based in Gurgaon. Specializing in Trolleys, Cranes, and custom fabrication since 1970."
+        keywords="About U.S.T Enterprises, Industrial Manufacturer Gurgaon, Handling Trolleys Manufacturer, JIB Cranes India, Industrial Storage Solutions, ISO 9001 Certified Company"
+        url="/about"
+        schema={aboutSchema}
+      />
+
       {/* Hero Section */}
       <div className="relative bg-primary-800 py-32">
         <div
@@ -303,26 +336,6 @@ function About() {
         </div>
       </section>
 
-      {/* Client Testimonials */}
-      {/* <section className="section bg-primary-700 text-white">
-        <div className="container-custom">
-          <SectionHeading
-            title="Our Clients"
-            subtitle="Trusted by industry leaders across India and beyond"
-            centered
-            light
-          />
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
-            <div className="text-xl font-bold text-white opacity-80">NTF India</div>
-            <div className="text-xl font-bold text-white opacity-80">Bundy India</div>
-            <div className="text-xl font-bold text-white opacity-80">Adhunik Cooling</div>
-            <div className="text-xl font-bold text-white opacity-80">Inergy Automotive</div>
-            <div className="text-xl font-bold text-white opacity-80">ENCO Engineers</div>
-            <div className="text-xl font-bold text-white opacity-80">And More...</div>
-          </div>
-        </div>
-      </section> */}
       <WhyChooseUs />
 
       <ClientsSection />
