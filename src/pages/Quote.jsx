@@ -5,6 +5,7 @@ import anime from 'animejs'
 import Button from '../components/ui/Button'
 import SectionHeading from '../components/ui/SectionHeading'
 import products from '../data/products'
+import SEO from '../components/seo/SEO'
 
 function RotatingGear() {
   const meshRef = useRef()
@@ -45,10 +46,6 @@ function Quote() {
   const [formErrors, setFormErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
-
-  useEffect(() => {
-    document.title = 'Get Quote - U.S.T Enterprises'
-  }, [])
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -135,6 +132,12 @@ function Quote() {
 
   return (
     <div>
+      <SEO
+        title="Request a Quote | U.S.T Enterprises"
+        description="Get a custom quote for industrial machinery including Ribbon Blenders, Hydro Turbines, and more. Fast response and competitive pricing."
+        keywords="Get Quote, Price Request, Industrial Machinery Pricing, Custom Fabrication Quote"
+        url="/quote"
+      />
       <div className="relative bg-primary-800 py-32">
         <div
           className="absolute inset-0 opacity-20"

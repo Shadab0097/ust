@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom' // Import hook for navigation
 import SectionHeading from '../components/ui/SectionHeading'
 import ProductCard from '../components/ui/ProductCard'
 import productsData from '../data/products'
+import SEO from '../components/seo/SEO'
 
 function Products() {
   const navigate = useNavigate() // Initialize navigation
@@ -10,10 +11,7 @@ function Products() {
   const [activeCategory, setActiveCategory] = useState('All')
   const [products, setProducts] = useState([])
 
-  // Update page title
-  useEffect(() => {
-    document.title = 'Products - U.S.T Enterprises'
-  }, [])
+  // Extract unique categories and set initial products
 
   // Extract unique categories and set initial products
   useEffect(() => {
@@ -42,6 +40,12 @@ function Products() {
 
   return (
     <div>
+      <SEO
+        title="Products | U.S.T Enterprises"
+        description="Explore our range of high-strength industrial solutions including Ribbon Blenders, Hydro Turbines, and Conveyor Systems."
+        keywords="Industrial Products, Ribbon Blender, Hydro Turbine, Screw Conveyor, U.S.T Enterprises Products"
+        url="/products"
+      />
       {/* Hero Section */}
       <div className="relative bg-primary-800 py-32">
         <div

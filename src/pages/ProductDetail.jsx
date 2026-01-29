@@ -31,8 +31,6 @@ function ProductDetail() {
     if (foundProduct) {
       setProduct(foundProduct)
       setCurrentImageIndex(0)
-      // We set document title via SEO component, but this is a fallback
-      document.title = `${foundProduct.name} - U.S.T Enterprises`
       window.scrollTo(0, 0)
     } else {
       // Product not found, redirect back to list

@@ -159,7 +159,7 @@ const products = [
     name: "Paint Shop Line",
     slug: "paint-shop-line",
     shortDescription: "Robust solution for pallet transportation",
-    description: "Heavy-duty pallet trolley designed for efficient transportation of heavy palletized loads within paint shops and industrial facilities. Features a hydraulic lift system, reinforced forks, ergonomic handle, and overload protection valve—built for smooth, safe material handling.",
+    description: "U.S.T Enterprises is a leading manufacturer of Heavy-duty pallet trolleys/Paint Shop Lines in India. Designed for efficient transportation of heavy palletized loads within paint shops and industrial facilities. Features a hydraulic lift system, reinforced forks, ergonomic handle, and overload protection valve—built for smooth, safe material handling.",
     category: "Handling Trolleys",
     images: [
       "/assets/paintShop/psimg1.jpg",
@@ -193,7 +193,7 @@ const products = [
     name: "Hydro Turbine",
     slug: "hydro-turbine",
     shortDescription: "High-efficiency water-to-energy conversion for hydroelectric power generation",
-    description: "Industrial-grade Francis/Kaplan type hydro turbine designed for converting kinetic and potential energy of flowing water into mechanical rotational energy for electricity generation. Features precision-engineered runner blades, wicket gate control system, and robust construction for reliable operation in medium-head hydroelectric applications with variable flow conditions.",
+    description: "Premium Industrial-grade Francis/Kaplan type hydro turbine manufacturer in Gurgaon, India. Our turbines are designed for converting kinetic and potential energy of flowing water into mechanical rotational energy for electricity generation. Features precision-engineered runner blades, wicket gate control system, and robust construction for reliable operation in medium-head hydroelectric applications.",
     category: "Power Generation Equipment",
     images: [
       "/assets/hydroTurbine/ht1.jpg",
@@ -240,7 +240,7 @@ const products = [
     name: "Dust Collector System",
     slug: "dust-collector-system",
     shortDescription: "High‑performance industrial air filtration solution",
-    description: "Robust industrial dust collector engineered for heavy‑duty operations. Features a modular steel housing, cartridge or bag‑filter media, and a powerful fan to capture and remove airborne particulates effectively, safeguarding equipment, personnel, and environmental compliance.",
+    description: "Leading Dust Collector System manufacturer in India. Robust industrial dust collector engineered for heavy‑duty operations. Features a modular steel housing, cartridge or bag‑filter media, and a powerful fan to capture and remove airborne particulates effectively, safeguarding equipment, personnel, and environmental compliance.",
     category: "Air Filtration Systems",
     images: [
       "/assets/dustCollector/dimg1.jpg",
@@ -277,7 +277,7 @@ const products = [
     name: "Ribbon Blender Machine",
     slug: "ribbon-blender-machine",
     shortDescription: "Efficient industrial mixer for powders, granules & semi‑dry pastes",
-    description: "Industrial ribbon blender engineered for uniform mixing of dry powders, granules, and low‑viscosity pastes. Features inner and outer helical ribbons housed in a U‑shaped stainless steel trough, providing thorough blending via counter‑current motion, ideal for food, chemical, pharmaceutical, and cosmetic applications.",
+    description: "Top-rated Ribbon Blender Machine manufacturer. Industrial ribbon blender engineered for uniform mixing of dry powders, granules, and low‑viscosity pastes. Features inner and outer helical ribbons housed in a U‑shaped stainless steel trough, providing thorough blending via counter‑current motion, ideal for food, chemical, pharmaceutical, and cosmetic applications.",
     category: "Industrial Mixers",
     images: [
       "/assets/ribbonBlender/rbimg1.jpg",
@@ -309,7 +309,7 @@ const products = [
     name: "Screw Conveyor",
     slug: "screw-conveyor",
     shortDescription: "Precision material dispensing for production lines",
-    description: "Industrial screw (auger) conveyor engineered for reliable, continuous handling and metering of powders, granules, semi-solids, and slow-flowing materials. Equipped with a robust rotating helical screw within a U‑trough or tubular housing, it delivers smooth, variable-rate flow control ideal for production-line integration.",
+    description: "High-quality Screw Conveyor manufacturer and supplier in Delhi NCR. Industrial screw (auger) conveyor engineered for reliable, continuous handling and metering of powders, granules, semi-solids, and slow-flowing materials. Equipped with a robust rotating helical screw within a U‑trough or tubular housing, it delivers smooth, variable-rate flow control.",
     category: "Hopper Machines",
     images: [
       "/assets/screwConvey/scimg1.jpg",
@@ -345,7 +345,7 @@ const products = [
     name: "Scissor Lift",
     slug: "scissor-lift",
     shortDescription: "Versatile scissor lift trolley for ergonomic handling",
-    description: "Heavy-duty scissor lift cart designed to elevate and transport tools, components, or equipment efficiently. Features a robust steel frame, hydraulically or mechanically powered X‑bar mechanism, and smooth-rolling casters, providing adjustable height positions and safe load handling.",
+    description: "Heavy-duty Scissor Lift Manufacturer in India. Scissor lift cart designed to elevate and transport tools, components, or equipment efficiently. Features a robust steel frame, hydraulically or mechanically powered X‑bar mechanism, and smooth-rolling casters, providing adjustable height positions and safe load handling.",
     category: "Storage & Lift Carts",
     images: [
       "/assets/scissorLift/slimg.jpg",
@@ -379,7 +379,7 @@ const products = [
     name: "Water Curtain Paint Booth",
     slug: "water-curtain-paint-booth",
     shortDescription: "Efficient overspray control and air purification",
-    description: "Industrial-grade water curtain spray booth designed for high-volume painting applications. Utilizes a cascading water wall to scrub overspray particles from the paint-laden air, offering superior particle containment, consistent finishes, and environmental compliance.",
+    description: "Leading manufacturer of Water Curtain Paint Booths in Gurgaon. Industrial-grade water curtain spray booth designed for high-volume painting applications. Utilizes a cascading water wall to scrub overspray particles from the paint-laden air, offering superior particle containment, consistent finishes, and environmental compliance.",
     category: "Paint Spray Booths",
     images: [
       "/assets/waterCurtain/wcimg1.jpg",
@@ -414,7 +414,7 @@ const products = [
     name: "Atta Chakki Machine",
     slug: "atta-chakki-machine",
     shortDescription: "Traditional stone-based flour grinding for fresh, nutritious flour",
-    description: "Commercial-grade atta chakki machine designed for high-quality flour production from wheat, rice, maize, and other grains. Features traditional stone grinding technology that preserves nutritional value and natural taste, with robust construction for continuous commercial operation and consistent flour quality.",
+    description: "Commercial Atta Chakki Machine manufacturer for high-quality flour production. Designed for commercial processing of wheat, rice, maize, and other grains. Features traditional stone grinding technology that preserves nutritional value and natural taste, with robust construction for continuous commercial operation.",
     category: "Flour Milling Equipment",
     images: [
       "/assets/attaChakki/ac1.jpg",
@@ -449,7 +449,7 @@ const products = [
     name: "Sheet Rolling Machine",
     slug: "sheet-rolling-machine",
     shortDescription: "3-roll pyramid type for precise plate bending and forming",
-    description: "Industrial-grade 3-roll pyramid type sheet rolling machine designed for forming cylindrical, conical, and curved shapes from metal plates. Features asymmetrical roller configuration with upper main drive roller and adjustable lower rollers for versatile plate forming applications in fabrication and manufacturing industries.",
+    description: "Industrial Sheet Rolling Machine manufacturer in India. 3-roll pyramid type sheet rolling machine designed for forming cylindrical, conical, and curved shapes from metal plates. Features asymmetrical roller configuration with upper main drive roller and adjustable lower rollers for versatile plate forming applications.",
     category: "Metal Forming Equipment",
     images: [
       "/assets/sheetRolling/sr1.jpg",
@@ -489,7 +489,7 @@ const products = [
     name: "Telescopic Belt Conveyor",
     slug: "telescopic-belt-conveyor",
     shortDescription: "Extendable loading system for efficient truck and container operations",
-    description: "Multi-stage telescopic belt conveyor system designed for rapid loading and unloading of trucks, containers, and warehouses. Features hydraulic extension and retraction capabilities with adjustable height settings, enabling operators to reach deep into vehicles while minimizing manual handling and improving operational efficiency.",
+    description: "Telescopic Belt Conveyor system manufacturer. Multi-stage telescopic belt conveyor system designed for rapid loading and unloading of trucks, containers, and warehouses. Features hydraulic extension and retraction capabilities with adjustable height settings, enabling operators to reach deep into vehicles while minimizing manual handling.",
     category: "Material Handling Equipment",
     images: [
       "/assets/telescopicBelt/ts1.jpg",
@@ -532,7 +532,7 @@ const products = [
     name: "Vibro De-Stoner",
     slug: "vibro-de-stoner",
     shortDescription: "Precision stone and heavy impurity removal from grains and pulses",
-    description: "Advanced vibratory destoning machine designed for efficient separation of stones, glass, metal fragments, and other heavy impurities from grains, pulses, and seeds. Utilizes specific gravity differences and controlled air flow with reciprocating motion to achieve superior cleaning performance in grain processing applications.",
+    description: "Advanced Vibro De-Stoner manufacturer for grain processing. Designed for efficient separation of stones, glass, metal fragments, and other heavy impurities from grains, pulses, and seeds. Utilizes specific gravity differences and controlled air flow with reciprocating motion to achieve superior cleaning performance.",
     category: "Grain Cleaning Equipment",
     images: [
       "/assets/vibroDeStoner/vd1.jpg",
@@ -574,7 +574,7 @@ const products = [
     name: "Hammer Mill",
     slug: "hammer-mill",
     shortDescription: "High-speed crushing and grinding for feed and grain processing",
-    description: "Industrial hammer mill designed for crushing and grinding various materials including grains, feed components, agricultural products, and biomass. Features high-speed rotating hammers that reduce material size through multiple impact crushing, with adjustable screen perforations for precise particle size control in feed mills and processing plants.",
+    description: "Industrial Hammer Mill manufacturer. Designed for crushing and grinding various materials including grains, feed components, agricultural products, and biomass. Features high-speed rotating hammers that reduce material size through multiple impact crushing, with adjustable screen perforations for precise particle size control.",
     category: "Crushing & Grinding Equipment",
     images: [
       "/assets/hammerMill/hm1.jpg",
@@ -616,7 +616,7 @@ const products = [
     name: "Blower Fan",
     slug: "blower-fan",
     shortDescription: "High-pressure centrifugal air movement for industrial applications",
-    description: "Industrial-grade centrifugal blower fan designed for high-pressure air movement and ventilation applications. Features backward-curved impeller blades for maximum efficiency, robust construction for continuous operation, and variable speed control for precise airflow management in HVAC, material handling, and process ventilation systems.",
+    description: "High-pressure Industrial Blower Fan manufacturer in India. Centrifugal blower fan designed for high-pressure air movement and ventilation applications. Features backward-curved impeller blades for maximum efficiency, robust construction for continuous operation, and variable speed control for precise airflow management.",
     category: "Air Handling Equipment",
     images: [
       "/assets/blowerFan/bf1.jpg",
@@ -663,7 +663,7 @@ const products = [
     name: "Tensile Shed",
     slug: "tensile-shed",
     shortDescription: "Aesthetic membrane canopy structures for weather protection",
-    description: "Modern tensile fabric structure designed for versatile outdoor coverage including car parking, walkways, and recreational areas. Features high-strength membrane materials stretched over steel framework to create elegant, curved architectural forms that provide excellent weather protection while allowing natural light transmission.",
+    description: "Custom Tensile Shed manufacturer and supplier. Modern tensile fabric structure designed for versatile outdoor coverage including car parking, walkways, and recreational areas. Features high-strength membrane materials stretched over steel framework to create elegant, curved architectural forms.",
     category: "Architectural Structures",
     images: [
       "/assets/tensilShed/ts1.jpg",
@@ -709,7 +709,7 @@ const products = [
     name: "Seed Cleaning Machine",
     slug: "seed-cleaning-machine",
     shortDescription: "Multi-stage grain and seed processing for superior quality output",
-    description: "Advanced multi-stage seed and grain cleaning machine designed for comprehensive removal of impurities including stones, dust, chaff, damaged seeds, and foreign materials. Features precision screening, aspiration systems, and gravity separation technology to deliver clean, graded seeds meeting industry standards for agricultural processing and export applications.",
+    description: "Best Seed Cleaning Machine manufacturer in India. Advanced multi-stage seed and grain cleaning machine/Plant designed for comprehensive removal of impurities including stones, dust, chaff, damaged seeds, and foreign materials. Features precision screening, aspiration systems, and gravity separation technology.",
     category: "Seed Processing Equipment",
     images: [
       "/assets/seedCleaning/sc1.jpg",
