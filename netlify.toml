@@ -1,12 +1,14 @@
 [build.processing.html]
   pretty_urls = false
 
+# 1️⃣ Remove trailing slash (but NOT for root)
 [[redirects]]
-  from = "/:path*/"
-  to = "/:path*"
+  from = "/:path+/"
+  to = "/:path+"
   status = 301
   force = true
 
+# 2️⃣ SPA fallback (must be LAST)
 [[redirects]]
   from = "/*"
   to = "/index.html"
