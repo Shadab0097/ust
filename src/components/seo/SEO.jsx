@@ -4,7 +4,9 @@ const SEO = ({ title, description, keywords, image, url, type = 'website', schem
   const siteTitle = "U.S.T Enterprises";
   const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
   const siteUrl = "https://www.ustenterprises.in"; // 🔴 REPLACE with your actual domain
-  const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
+  // Ensure trailing slash to match Netlify's URL structure
+  const rawUrl = url ? `${siteUrl}${url}` : `${siteUrl}/`;
+  const fullUrl = rawUrl.endsWith('/') ? rawUrl : `${rawUrl}/`;
   const metaImage = image ? `${siteUrl}${image}` : `${siteUrl}/assets/og-default.jpg`;
 
   return (
@@ -32,9 +34,17 @@ const SEO = ({ title, description, keywords, image, url, type = 'website', schem
 
       {/* --- JSON-LD Structured Data (Google Rich Results) --- */}
       {schema && (
-        <script type="application/ld+json">
-          {JSON.stringify(schema)}
-        </script>
+        Array.isArray(schema)
+          ? schema.map((s, i) => (
+            <script key={i} type="application/ld+json">
+              {JSON.stringify(s)}
+            </script>
+          ))
+          : (
+            <script type="application/ld+json">
+              {JSON.stringify(schema)}
+            </script>
+          )
       )}
     </>
   );

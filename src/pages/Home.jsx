@@ -37,6 +37,7 @@ function Home() {
         title="Industrial Manufacturing & Engineering Solutions"
         description="U.S.T Enterprises is a leading manufacturer of heavy industrial machinery, including Ribbon Blenders, Hydro Turbines, and Dust Collection Systems."
         keywords="Industrial Machinery, Custom Fabrication, Engineering Solutions, U.S.T Enterprises, Heavy Duty Manufacturing India"
+        url="/"
         schema={orgSchema}
       />
 

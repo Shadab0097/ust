@@ -95,49 +95,93 @@ function ProductDetail() {
 
   // --- SEO LOGIC (Safe to run now because we passed the check above) ---
 
-  // 1. Safe Dynamic Keywords
-  const dynamicKeywords = [
+  // 1. Use product-specific SEO keywords, or fallback to dynamic generation
+  const seoKeywords = product.seoKeywords || [
     product.name,
     product.category,
+    `${product.name} Manufacturer`,
+    `${product.name} Manufacturer in India`,
+    `${product.name} Price`,
+    `Buy ${product.name}`,
     "Industrial Manufacturer",
-    "Heavy Duty Equipment",
     "U.S.T Enterprises",
     ...(product.features ? product.features.slice(0, 3) : [])
   ].join(", ");
 
-  // 2. Safe Schema
+  // 2. Enhanced Product Schema with manufacturer details
   const productSchema = {
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": product.name,
     "image": product.images ? product.images.map(img => `https://www.ustenterprises.in${img}`) : [],
-    "description": product.description,
+    "description": product.seoDescription || product.description,
     "sku": `UST-${product.id}`,
     "brand": {
       "@type": "Brand",
       "name": "U.S.T Enterprises"
     },
+    "manufacturer": {
+      "@type": "Organization",
+      "name": "U.S.T Enterprises",
+      "url": "https://www.ustenterprises.in/",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Plot No. 207, Sector 8, IMT Manesar",
+        "addressLocality": "Gurgaon",
+        "addressRegion": "Haryana",
+        "postalCode": "122001",
+        "addressCountry": "IN"
+      }
+    },
+    "category": product.category,
     "offers": {
       "@type": "Offer",
-      "url": `https://www.ustenterprises.in/products/${product.slug}`,
+      "url": `https://www.ustenterprises.in/products/${product.slug}/`,
       "priceCurrency": "INR",
       "availability": "https://schema.org/InStock",
-      "price": "0"
-    }
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "INR"
+      }
+    },
+    ...(product.specifications ? {
+      "additionalProperty": Object.entries(product.specifications).map(([key, value]) => ({
+        "@type": "PropertyValue",
+        "name": key,
+        "value": value
+      }))
+    } : {})
   };
+
+  // 3. FAQ Schema for rich snippets
+  const faqSchema = product.faqs && product.faqs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": product.faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  } : null;
+
+  // Combine schemas
+  const schemas = [productSchema, ...(faqSchema ? [faqSchema] : [])];
 
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
 
       {/* Inject SEO Tags */}
       <SEO
-        title={product.name}
-        description={product.shortDescription || product.description?.substring(0, 160)}
-        keywords={dynamicKeywords}
+        title={product.seoTitle || product.name}
+        description={product.seoDescription || product.shortDescription || product.description?.substring(0, 160)}
+        keywords={seoKeywords}
         image={product.images?.[0]}
         url={`/products/${product.slug}`}
         type="product"
-        schema={productSchema}
+        schema={schemas}
       />
 
       {/* --- HERO SECTION --- */}
@@ -356,6 +400,34 @@ function ProductDetail() {
           </div>
         </div>
       </div>
+
+      {/* --- FAQ SECTION --- */}
+      {product.faqs && product.faqs.length > 0 && (
+        <div className="container-custom mt-12">
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 p-6 md:p-10">
+            <h2 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
+              <span className="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mr-4">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </span>
+              Frequently Asked Questions about {product.name}
+            </h2>
+            <div className="space-y-6">
+              {product.faqs.map((faq, index) => (
+                <div key={index} className="border-b border-gray-100 pb-6 last:border-0 last:pb-0">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                    {faq.question}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

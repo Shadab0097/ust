@@ -34,7 +34,7 @@ function Contact() {
     "image": "https://www.ustenterprises.in/assets/logo.png", // Ensure this path exists
     "telephone": "+918048970369",
     "email": "ustenterprises13@gmail.com",
-    "url": "https://www.ustenterprises.in/contact",
+    "url": "https://www.ustenterprises.in/contact/",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Plot No. 207, Sector 8, IMT Manesar",
