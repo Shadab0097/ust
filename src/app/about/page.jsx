@@ -8,6 +8,7 @@ import WhySplit from '@/components/home/WhySplit'
 import ClientsMarquee from '@/components/home/ClientsMarquee'
 import ScrollScene from '@/components/motion/ScrollScene'
 import WordReveal from '@/components/motion/WordReveal'
+import WeldSparks from '@/components/motion/WeldSparks'
 import Breadcrumbs from '@/components/seo/Breadcrumbs'
 import JsonLd from '@/components/seo/JsonLd'
 import { site } from '@/data/site'
@@ -117,6 +118,7 @@ export default function AboutPage() {
                 { text: 'Every machine with our name on it is cut, welded, finished and tested', accent: true },
                 { text: 'on our own floor in IMT Manesar - so we can stand behind it for years.' },
               ]}
+              tone="light"
             />
             <div className="mt-12 h-px w-full bg-primary-900/10 overflow-hidden" aria-hidden="true">
               <div className="progress-bar h-full bg-accent-500" />
@@ -156,23 +158,27 @@ export default function AboutPage() {
               <SectionHeading light eyebrow="Our journey" title="Five decades of growth." subtitle="Milestones from a Gurgaon workshop to a pan-India machinery manufacturer." id="journey-heading" />
             </div>
           </div>
-          <ScrollScene as="ol" mode="through" className="lg:col-span-8 relative">
-            <span className="absolute left-[0.4rem] top-2 bottom-2 w-px bg-white/15" aria-hidden="true" />
-            <span className="line-fill absolute left-[0.4rem] top-2 bottom-2 w-px bg-accent-500" aria-hidden="true" />
-            {timeline.map((e, i) => (
-              <Reveal as="li" key={e.year} delay={60} className="relative pl-12 pb-14 last:pb-0">
-                <span className="absolute left-0 top-3 w-3.5 h-3.5 rounded-full bg-accent-500 ring-4 ring-primary-900" aria-hidden="true" />
-                <p className="display-xl text-5xl md:text-7xl text-white/90">{e.year}</p>
-                <h3 className="mt-3 font-display font-semibold text-2xl tracking-tight">{e.title}</h3>
-                <p className="mt-2 text-primary-200 leading-relaxed max-w-xl">{e.description}</p>
-                {i === timeline.length - 1 && (
-                  <p className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/5 ring-1 ring-white/10 px-4 py-1.5 text-sm text-accent-200">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent-400 animate-pulse-dot" aria-hidden="true" /> And still building
-                  </p>
-                )}
-              </Reveal>
-            ))}
-          </ScrollScene>
+          {/* Timeline: the orange line is welded downward by sparks; each year lights up as the tip reaches it */}
+          <div className="lg:col-span-8 relative">
+            <span className="line-track absolute left-[0.4rem] top-2 bottom-2 w-px bg-white/15" aria-hidden="true" />
+            <span className="line-fill absolute left-[0.4rem] top-2 bottom-2 w-px bg-accent-500 shadow-[0_0_10px_rgba(237,137,54,0.7)]" aria-hidden="true" />
+            <WeldSparks mode="line" />
+            <ol className="relative">
+              {timeline.map((e, i) => (
+                <Reveal as="li" key={e.year} delay={60} data-weld="" className="relative pl-12 pb-14 last:pb-0">
+                  <span className="tl-dot absolute left-0 top-3 w-3.5 h-3.5 rounded-full bg-accent-500 ring-4 ring-primary-900 transition-all duration-500" aria-hidden="true" />
+                  <p className="tl-year display-xl text-5xl md:text-7xl text-white/90">{e.year}</p>
+                  <h3 className="mt-3 font-display font-semibold text-2xl tracking-tight">{e.title}</h3>
+                  <p className="mt-2 text-primary-200 leading-relaxed max-w-xl">{e.description}</p>
+                  {i === timeline.length - 1 && (
+                    <p className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/5 ring-1 ring-white/10 px-4 py-1.5 text-sm text-accent-200">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent-400 animate-pulse-dot" aria-hidden="true" /> And still building
+                    </p>
+                  )}
+                </Reveal>
+              ))}
+            </ol>
+          </div>
         </div>
       </section>
 
