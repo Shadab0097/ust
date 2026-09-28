@@ -1,5 +1,5 @@
 # Netlify: leave "Base directory" empty (the app is at the repo root).
-# Netlify auto-detects Next.js and applies its official Next.js adapter (SSG pages are served from the CDN).
+# Publish directory must be ".next" (clear any old "dist" value in the Netlify UI).
 [build]
   command = "npm run build"
   publish = ".next"
@@ -7,6 +7,11 @@
 [build.environment]
   NODE_VERSION = "22"
   NEXT_TELEMETRY_DISABLED = "1"
+
+# Official Next.js adapter - turns the .next output into Netlify CDN files + functions.
+# Pinned explicitly so the site never deploys as a raw folder (which serves 404 everywhere).
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
 # Pings Bing/IndexNow with all sitemap URLs after each successful production deploy.
 [[plugins]]

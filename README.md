@@ -1,4 +1,4 @@
-﻿# U.S.T Enterprises â€“ Next.js site
+# U.S.T Enterprises â€“ Next.js site
 
 Next.js 16 (App Router) website for U.S.T Enterprises. Every page is statically pre-rendered (SSG), so Google gets full HTML (products, specs, FAQs, schema) without executing JavaScript.
 
@@ -27,7 +27,7 @@ The app is at the repository root, so leave **Base directory** empty in Netlify 
 
 ## After go-live
 
-1. Submit `https://www.ustenterprises.in/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
+1. Submit `https://ustenterprises.in/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
 2. Use URL Inspection â†’ "Request indexing" for the home page and top product pages.
 3. Validate a product page in the Rich Results Test.
 4. Keep the Google Business Profile address/phone identical to `site.js`.

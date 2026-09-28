@@ -1,7 +1,7 @@
 // Central business / site configuration. Update here once and every page,
 // meta tag and JSON-LD block picks it up.
 
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.ustenterprises.in').replace(/\/$/, '')
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://ustenterprises.in').replace(/\/$/, '')
 
 // Bump this date whenever page content is meaningfully updated. Used for sitemap <lastmod>
 // and schema dateModified. (A date that changes on every build is ignored by Google.)
