@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Reveal from '@/components/ui/Reveal'
 
 /**
  * Category filter. Cards are server-rendered and passed in as elements, so every product
@@ -36,9 +37,9 @@ export default function ProductFilter({ categories, items }) {
       </div>
 
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-        {items.map((item) => (
-          <li key={item.key} hidden={active !== 'All' && item.category !== active} className="animate-fade-up">
-            {item.element}
+        {items.map((item, i) => (
+          <li key={item.key} hidden={active !== 'All' && item.category !== active}>
+            <Reveal delay={(i % 3) * 80} className="h-full">{item.element}</Reveal>
           </li>
         ))}
       </ul>

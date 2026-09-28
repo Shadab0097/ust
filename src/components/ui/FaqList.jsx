@@ -1,11 +1,13 @@
 import { Plus } from '@phosphor-icons/react/dist/ssr'
+import Reveal from './Reveal'
 
 // Server-rendered accessible FAQ accordion (content always in HTML for crawlers).
+// Each question slides in as it scrolls into view (all screen sizes).
 export default function FaqList({ faqs, defaultOpen = 0 }) {
   return (
     <div className="divide-y divide-primary-900/10">
       {faqs.map((faq, i) => (
-        <details key={faq.question} className="faq group py-6" open={i === defaultOpen}>
+        <Reveal as="details" key={faq.question} delay={Math.min(i, 4) * 60} className="faq group py-6" open={i === defaultOpen}>
           <summary className="flex items-start justify-between gap-6">
             <h3 className="font-display font-semibold text-lg md:text-xl tracking-tight text-primary-900 leading-snug">{faq.question}</h3>
             <span
@@ -16,7 +18,7 @@ export default function FaqList({ faqs, defaultOpen = 0 }) {
             </span>
           </summary>
           <p className="mt-4 text-primary-600 leading-relaxed pr-12 max-w-[70ch]">{faq.answer}</p>
-        </details>
+        </Reveal>
       ))}
     </div>
   )

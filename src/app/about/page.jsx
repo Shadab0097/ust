@@ -156,8 +156,9 @@ export default function AboutPage() {
               <SectionHeading light eyebrow="Our journey" title="Five decades of growth." subtitle="Milestones from a Gurgaon workshop to a pan-India machinery manufacturer." id="journey-heading" />
             </div>
           </div>
-          <ol className="lg:col-span-8 relative">
+          <ScrollScene as="ol" mode="through" className="lg:col-span-8 relative">
             <span className="absolute left-[0.4rem] top-2 bottom-2 w-px bg-white/15" aria-hidden="true" />
+            <span className="line-fill absolute left-[0.4rem] top-2 bottom-2 w-px bg-accent-500" aria-hidden="true" />
             {timeline.map((e, i) => (
               <Reveal as="li" key={e.year} delay={60} className="relative pl-12 pb-14 last:pb-0">
                 <span className="absolute left-0 top-3 w-3.5 h-3.5 rounded-full bg-accent-500 ring-4 ring-primary-900" aria-hidden="true" />
@@ -171,7 +172,7 @@ export default function AboutPage() {
                 )}
               </Reveal>
             ))}
-          </ol>
+          </ScrollScene>
         </div>
       </section>
 

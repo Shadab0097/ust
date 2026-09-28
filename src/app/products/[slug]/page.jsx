@@ -143,22 +143,22 @@ export default async function ProductPage({ params }) {
           <div className="lg:col-span-5 lg:pt-36 min-w-0">
             {/* Answer-first block: the question + 50-word answer AI Overviews / ChatGPT / Perplexity quote */}
             {seo.answer && (
-              <section className="mb-8 rounded-[1.5rem] bg-primary-50 ring-1 ring-primary-900/5 p-6" aria-labelledby="quick-answer">
+              <Reveal as="section" className="mb-8 rounded-[1.5rem] bg-primary-50 ring-1 ring-primary-900/5 p-6" aria-labelledby="quick-answer">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent-600 mb-2">Quick answer</p>
                 <h2 id="quick-answer" className="display-md text-xl md:text-2xl text-primary-900">{whatIsQ.charAt(0).toUpperCase() + whatIsQ.slice(1)}</h2>
                 <p className="mt-3 text-primary-700 leading-relaxed">{seo.answer}</p>
-              </section>
+              </Reveal>
             )}
             <h2 className="display-md text-2xl md:text-3xl text-primary-900">{product.name} - overview</h2>
             <p className="mt-5 text-lg text-primary-600 leading-relaxed">{product.description}</p>
 
             {keySpecs.length > 0 && (
               <dl className="mt-8 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3 gap-3">
-                {keySpecs.map(([k, v]) => (
-                  <div key={k} className="rounded-2xl bg-primary-50 ring-1 ring-primary-900/5 p-4">
+                {keySpecs.map(([k, v], i) => (
+                  <Reveal key={k} delay={i * 80} className="rounded-2xl bg-primary-50 ring-1 ring-primary-900/5 p-4">
                     <dt className="text-[11px] uppercase tracking-[0.14em] text-primary-500">{k}</dt>
                     <dd className="mt-1 font-semibold text-primary-900 leading-snug">{v}</dd>
-                  </div>
+                  </Reveal>
                 ))}
               </dl>
             )}
@@ -168,18 +168,18 @@ export default async function ProductPage({ params }) {
                 <h3 id="features-heading" className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-500 mb-4 font-sans">Key features</h3>
                 <ul className="divide-y divide-primary-900/5 border-y border-primary-900/5">
                   {product.features.map((f) => (
-                    <li key={f} className="flex items-start gap-4 py-3.5">
+                    <Reveal as="li" key={f} delay={Math.min(product.features.indexOf(f), 5) * 50} className="flex items-start gap-4 py-3.5">
                       <span className="mt-0.5 w-6 h-6 rounded-full bg-accent-50 text-accent-600 flex items-center justify-center shrink-0" aria-hidden="true">
                         <Check size={13} weight="bold" />
                       </span>
                       <span className="text-primary-700">{f}</span>
-                    </li>
+                    </Reveal>
                   ))}
                 </ul>
               </section>
             )}
 
-            <div className="mt-10 bezel">
+            <Reveal className="mt-10 bezel">
               <div className="bezel-core p-6">
                 <p className="font-display font-semibold text-lg text-primary-900">Talk to an engineer about this machine</p>
                 <p className="mt-1 text-sm text-primary-600">Share your capacity and application - we reply within 24 hours.</p>
@@ -190,7 +190,7 @@ export default async function ProductPage({ params }) {
                   </a>
                 </div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -199,13 +199,13 @@ export default async function ProductPage({ params }) {
       <section className="border-y border-primary-900/5 bg-primary-50" aria-label="Why buy from U.S.T Enterprises">
         <ul className="container-custom max-w-7xl grid grid-cols-2 lg:grid-cols-4">
           {promises.map(({ icon: Icon, title, text }, i) => (
-            <li key={title} className={`flex items-start gap-4 py-8 px-2 md:px-6 ${i ? 'lg:border-l border-primary-900/10' : ''}`}>
+            <Reveal as="li" key={title} delay={i * 80} className={`flex items-start gap-4 py-8 px-2 md:px-6 ${i ? 'lg:border-l border-primary-900/10' : ''}`}>
               <Icon size={28} weight="light" className="text-accent-600 shrink-0" aria-hidden="true" />
               <div>
                 <p className="font-semibold text-primary-900">{title}</p>
                 <p className="text-sm text-primary-600 mt-0.5">{text}</p>
               </div>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </section>
@@ -230,11 +230,11 @@ export default async function ProductPage({ params }) {
                   <table className="w-full text-left">
                     <caption className="sr-only">{product.name} specifications</caption>
                     <tbody className="divide-y divide-primary-900/5">
-                      {specs.map(([k, v]) => (
-                        <tr key={k} className="transition-colors hover:bg-primary-50/70">
+                      {specs.map(([k, v], i) => (
+                        <Reveal as="tr" key={k} delay={Math.min(i, 8) * 40} className="transition-colors hover:bg-primary-50/70">
                           <th scope="row" className="py-4 px-5 md:px-7 font-medium text-primary-500 w-2/5 align-top text-sm md:text-base">{k}</th>
                           <td className="py-4 px-5 md:px-7 font-semibold text-primary-900 text-sm md:text-base">{v}</td>
-                        </tr>
+                        </Reveal>
                       ))}
                     </tbody>
                   </table>
@@ -256,8 +256,8 @@ export default async function ProductPage({ params }) {
             </div>
             <div className="lg:col-span-7">
               <ul className="flex flex-wrap gap-2.5">
-                {industries.map((ind) => (
-                  <li key={ind} className="rounded-full bg-white/5 ring-1 ring-white/15 px-5 py-2 text-primary-100">{ind}</li>
+                {industries.map((ind, i) => (
+                  <Reveal as="li" key={ind} delay={i * 60} className="rounded-full bg-white/5 ring-1 ring-white/15 px-5 py-2 text-primary-100">{ind}</Reveal>
                 ))}
               </ul>
               {solutionsFor.length > 0 && (

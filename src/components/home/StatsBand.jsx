@@ -15,12 +15,13 @@ export default function StatsBand() {
       <div className="container-custom max-w-7xl relative">
         <dl className="grid grid-cols-2 lg:grid-cols-4 border-t border-l border-white/10">
           {stats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 90} className="border-b border-r border-white/10 p-6 md:p-10">
-              <dt className="text-sm md:text-base text-primary-200 order-2">{s.label}</dt>
-              <dd className="font-display font-wide font-semibold tracking-[-0.04em] leading-none text-5xl md:text-7xl my-4">
+            // container-type lets the number scale to its own cell width (cqi), so "1,000+" never overflows
+            <Reveal key={s.label} delay={i * 90} className="min-w-0 border-b border-r border-white/10 p-4 sm:p-6 md:p-10 [container-type:inline-size]">
+              <dt className="text-sm md:text-base text-primary-200">{s.label}</dt>
+              <dd className="font-display font-wide font-semibold tracking-[-0.04em] leading-none my-3 md:my-4 whitespace-nowrap text-[min(26cqi,4.5rem)]">
                 <CountUp value={s.value} suffix={s.suffix} />
               </dd>
-              <dd className="text-xs uppercase tracking-[0.18em] text-primary-400">{s.note}</dd>
+              <dd className="text-[10px] sm:text-xs uppercase tracking-[0.14em] sm:tracking-[0.18em] text-primary-400">{s.note}</dd>
             </Reveal>
           ))}
         </dl>

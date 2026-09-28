@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import ScrollScene from '@/components/motion/ScrollScene'
 
 /**
  * Shared cinematic hero for inner pages.
@@ -6,16 +7,18 @@ import Image from 'next/image'
  */
 export default function PageHero({ title, subtitle, image, eyebrow, aside, children }) {
   return (
-    <section className="page-hero">
+    <ScrollScene as="section" mode="exit" className="page-hero">
       {image && (
-        <Image src={image} alt="" fill priority sizes="100vw" className="object-cover opacity-25" aria-hidden="true" />
+        <div className="hero-media absolute inset-0" aria-hidden="true">
+          <Image src={image} alt="" fill priority sizes="100vw" className="object-cover opacity-25" />
+        </div>
       )}
       <div className="absolute inset-0 bg-gradient-to-r from-primary-900 via-primary-900/85 to-primary-900/40" aria-hidden="true" />
       <div className="absolute inset-0 bg-gradient-to-t from-primary-900 via-transparent to-transparent" aria-hidden="true" />
       <div className="absolute inset-0 blueprint opacity-50" aria-hidden="true" />
       <div className="absolute -bottom-40 -right-20 w-[36rem] h-[36rem] rounded-full bg-accent-500/15 blur-3xl" aria-hidden="true" />
 
-      <div className="container-custom max-w-7xl relative z-10">
+      <div className="hero-copy container-custom max-w-7xl relative z-10">
         {children}
         <div className={`grid gap-12 items-end ${aside ? 'lg:grid-cols-12' : ''}`}>
           <div className={aside ? 'lg:col-span-7' : 'max-w-4xl'}>
@@ -41,6 +44,6 @@ export default function PageHero({ title, subtitle, image, eyebrow, aside, child
           )}
         </div>
       </div>
-    </section>
+    </ScrollScene>
   )
 }

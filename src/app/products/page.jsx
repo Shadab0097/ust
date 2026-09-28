@@ -97,8 +97,8 @@ export default function ProductsPage() {
             <h2 className="display-md text-3xl md:text-4xl text-primary-900">Complete solutions for your sector.</h2>
           </div>
           <ul className="lg:col-span-8 flex flex-wrap gap-2.5">
-            {solutions.map((s) => (
-              <li key={s.slug}>
+            {solutions.map((s, i) => (
+              <Reveal as="li" key={s.slug} delay={i * 50}>
                 <Link
                   href={`/solutions/${s.slug}/`}
                   className="group inline-flex items-center gap-2 rounded-full bg-white ring-1 ring-primary-900/10 pl-5 pr-1.5 py-1.5 text-primary-800 font-medium hover:ring-accent-400 transition-all duration-500"
@@ -108,7 +108,7 @@ export default function ProductsPage() {
                     <ArrowUpRight size={14} weight="bold" />
                   </span>
                 </Link>
-              </li>
+              </Reveal>
             ))}
           </ul>
         </div>
