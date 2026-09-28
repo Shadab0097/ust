@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,jsx}",
-  ],
+module.exports = {
+  content: ['./src/**/*.{js,jsx}'],
   theme: {
     extend: {
       colors: {
@@ -43,50 +40,39 @@ export default {
           800: '#7B341E',
           900: '#652B19',
         },
-        success: {
-          50: '#F0FFF4',
-          100: '#C6F6D5',
-          500: '#48BB78',
-          700: '#276749',
-        },
-        warning: {
-          50: '#FFFBEB',
-          100: '#FEF3C7',
-          500: '#F59E0B',
-          700: '#B45309',
-        },
-        error: {
-          50: '#FEF2F2',
-          100: '#FEE2E2',
-          500: '#EF4444',
-          700: '#B91C1C',
-        },
+        success: { 50: '#F0FFF4', 100: '#C6F6D5', 500: '#48BB78', 700: '#276749' },
+        warning: { 50: '#FFFBEB', 100: '#FEF3C7', 500: '#F59E0B', 700: '#B45309' },
+        error: { 50: '#FEF2F2', 100: '#FEE2E2', 500: '#EF4444', 700: '#B91C1C' },
         charcoal: '#1A202C',
-        steel: {
-          light: '#A0AEC0',
-          DEFAULT: '#4A5568',
-          dark: '#2D3748',
-        },
+        steel: { light: '#A0AEC0', DEFAULT: '#4A5568', dark: '#2D3748' },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        heading: ['Montserrat', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-body)', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-display)', 'var(--font-body)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-display)', 'var(--font-body)', 'system-ui', 'sans-serif'],
       },
-      borderRadius: {
-        '2xl': '1rem',
+      transitionTimingFunction: {
+        spring: 'cubic-bezier(0.32, 0.72, 0, 1)',
+        'out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
-      spacing: {
-        '72': '18rem',
-        '84': '21rem',
-        '96': '24rem',
-      },
+      borderRadius: { '2xl': '1rem' },
+      spacing: { 72: '18rem', 84: '21rem', 96: '24rem', 128: '32rem', 144: '36rem' },
       boxShadow: {
-        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
-        'medium': '0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03)',
+        soft: '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+        medium: '0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03)',
       },
-      spacing: {
-        '128': '32rem',
-        '144': '36rem',
+      keyframes: {
+        marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } },
+        'marquee-reverse': { '0%': { transform: 'translateX(-50%)' }, '100%': { transform: 'translateX(0%)' } },
+        'pulse-dot': { '0%, 100%': { opacity: 1, transform: 'scale(1)' }, '50%': { opacity: 0.4, transform: 'scale(0.8)' } },
+        'fade-up': { '0%': { opacity: 0, transform: 'translateY(24px)' }, '100%': { opacity: 1, transform: 'none' } },
+      },
+      animation: {
+        marquee: 'marquee 40s linear infinite',
+        'marquee-slow': 'marquee 60s linear infinite',
+        'marquee-reverse': 'marquee-reverse 55s linear infinite',
+        'pulse-dot': 'pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'fade-up': 'fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both',
       },
     },
   },

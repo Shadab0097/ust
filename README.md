@@ -1,86 +1,41 @@
-# U.S.T Enterprises - Industrial Equipment Manufacturer Website
+﻿# U.S.T Enterprises â€“ Next.js site
 
-A modern, responsive website for U.S.T Enterprises, a steel & iron manufacturer founded in 1970 in Gurgaon, India.
+Next.js 16 (App Router) website for U.S.T Enterprises. Every page is statically pre-rendered (SSG), so Google gets full HTML (products, specs, FAQs, schema) without executing JavaScript.
 
-## Technologies Used
-
-- React 18
-- Tailwind CSS for styling
-- Anime.js for animations
-- GSAP for scroll animations
-- Three.js / React Three Fiber for 3D components
-- React Router for navigation
-- Framer Motion for micro-interactions
-
-## Features
-
-- Responsive design that works on all device sizes
-- Interactive 3D product showcases
-- Smooth animations and transitions
-- Product modal with detailed information
-- Contact form with validation
-- Company timeline with animations
-- Modern industrial design system
-
-## Pages
-
-1. **Home** - Full-screen hero, featured product categories, and company introduction
-2. **About** - Company history, strengths, timeline, and client list
-3. **Products** - Grid of product cards with filtering by category
-4. **Contact** - Contact form with animated input effects and company information
-
-## Project Structure
-
-```
-/src
-  /components      # Reusable UI components
-    /3d            # 3D components and viewers
-    /home          # Components specific to home page
-    /layout        # Layout components (Header, Footer)
-    /ui            # General UI components
-  /pages           # Page components
-  /data            # Mock data files
-  /assets          # Static assets
-  App.jsx          # Main application component
-  main.jsx         # Application entry point
-```
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 14.0 or later
-- npm or yarn
-
-### Installation
-
-1. Clone the repository
-2. Install dependencies:
+## Commands
 
 ```bash
 npm install
+npm run dev     # http://localhost:3000
+npm run build   # production build (35 static pages)
+npm start
 ```
 
-3. Start the development server:
+Copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_SITE_URL` (and the Search Console verification token if used).
 
-```bash
-npm run dev
-```
+## Where things live
 
-4. Build for production:
+- `src/data/products.js` â€“ product catalogue. Add a product here â†’ page, sitemap entry, schema and footer link are generated automatically. Optional `priceFrom` (INR number) enables Offer/price in Product schema.
+- `src/data/solutions.js` â€“ industry landing pages (`/solutions/<slug>/`) and industries-served per product.
+- `src/data/site.js` â€“ business name, address, phones, keywords, service areas (keep NAP identical to Google Business Profile).
+- `src/lib/seo.js` â€“ metadata + JSON-LD builders.
+- `src/app/sitemap.js`, `robots.js`, `manifest.js`, `og.png/route.jsx` â€“ SEO routes.
 
-```bash
-npm run build
-```
+## Deploy (Netlify)
 
-## Customization
+The app is at the repository root, so leave **Base directory** empty in Netlify site settings (clear it if it was previously set to `nextjs`); `netlify.toml` handles the rest.
 
-- Colors and theme can be modified in `tailwind.config.js`
-- Product data can be updated in `src/data/products.js`
-- 3D models can be added to the `/public` folder and referenced in the product data
+## After go-live
 
-## Credits
+1. Submit `https://www.ustenterprises.in/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
+2. Use URL Inspection â†’ "Request indexing" for the home page and top product pages.
+3. Validate a product page in the Rich Results Test.
+4. Keep the Google Business Profile address/phone identical to `site.js`.
 
-- Images from [Pexels](https://www.pexels.com/)
-- Icons from [Heroicons](https://heroicons.com/)
-- 3D component integration using React Three Fiber
+## SEO / AEO / GEO maintenance
+
+- **Product copy for search & AI answers:** `src/data/productSeo.js` holds each product's short title (<= 60 chars) and 40-70 word "quick answer" (shown on the page, used in schema, `/llms.txt` and `/llms-full.txt`).
+- **After editing content:** bump `CONTENT_UPDATED` in `src/data/site.js` (drives sitemap lastmod + schema dateModified).
+- **AI crawlers:** allowed explicitly in `src/app/robots.js`. LLM-friendly summaries at `/llms.txt` and `/llms-full.txt` are generated automatically from the product data.
+- **IndexNow (Bing / ChatGPT search / Copilot):** `netlify/plugins/indexnow` submits all sitemap URLs after each production deploy. Key file: `public/fd248058838acaa1b95f8d9fd93b3420.txt` (keep in sync with the plugin).
+- **Rich product results (price in Google):** add `priceFrom` (number, INR) to a product in `src/data/products.js` to emit an Offer.

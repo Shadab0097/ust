@@ -1,104 +1,20 @@
-import { useRef, useEffect } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Reveal from './Reveal'
 
-gsap.registerPlugin(ScrollTrigger)
-
-function SectionHeading({ 
-  title, 
-  subtitle, 
-  centered = false, 
-  light = false,
-  className = '' 
-}) {
-  const headingRef = useRef(null)
-  
-  useEffect(() => {
-    if (headingRef.current) {
-      gsap.fromTo(
-        headingRef.current.querySelector('.heading-title'),
-        { 
-          y: 30, 
-          opacity: 0 
-        },
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: headingRef.current,
-            start: 'top 80%',
-          }
-        }
-      )
-      
-      if (headingRef.current.querySelector('.heading-subtitle')) {
-        gsap.fromTo(
-          headingRef.current.querySelector('.heading-subtitle'),
-          { 
-            y: 20, 
-            opacity: 0 
-          },
-          { 
-            y: 0, 
-            opacity: 1, 
-            duration: 0.8,
-            delay: 0.2,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: headingRef.current,
-              start: 'top 80%',
-            }
-          }
-        )
-      }
-      
-      if (headingRef.current.querySelector('.heading-line')) {
-        gsap.fromTo(
-          headingRef.current.querySelector('.heading-line'),
-          { 
-            width: 0,
-            opacity: 0 
-          },
-          { 
-            width: '4rem',
-            opacity: 1, 
-            duration: 1,
-            delay: 0.4,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: headingRef.current,
-              start: 'top 80%',
-            }
-          }
-        )
-      }
-    }
-  }, [])
-  
-  const alignment = centered ? 'text-center mx-auto' : 'text-left'
-  const textColor = light ? 'text-white' : 'text-charcoal'
-  const lineColor = light ? 'bg-white' : 'bg-accent-500'
-  
+/** Section intro: eyebrow pill + display heading + optional lead. */
+export default function SectionHeading({ title, subtitle, eyebrow, centered = false, light = false, as: Tag = 'h2', className = '', id }) {
   return (
-    <div 
-      ref={headingRef} 
-      className={`mb-12 ${alignment} ${className}`}
-    >
-      <h2 className={`heading-title text-3xl md:text-4xl font-bold mb-4 ${textColor}`}>
+    <Reveal className={`mb-12 md:mb-16 ${centered ? 'text-center mx-auto max-w-3xl' : 'max-w-3xl'} ${className}`}>
+      {eyebrow && (
+        <p className={`eyebrow mb-6 ${light ? 'bg-white/5 ring-1 ring-white/10 text-primary-200' : 'bg-primary-900/5 text-primary-700'}`}>{eyebrow}</p>
+      )}
+      <Tag id={id} className={`display-lg text-3xl sm:text-4xl md:text-5xl ${light ? 'text-white' : 'text-primary-900'}`}>
         {title}
-      </h2>
-      
+      </Tag>
       {subtitle && (
-        <p className={`heading-subtitle text-lg max-w-2xl ${centered ? 'mx-auto' : ''} ${light ? 'text-gray-200' : 'text-gray-600'}`}>
+        <p className={`mt-5 text-lg leading-relaxed text-pretty ${centered ? 'mx-auto' : ''} max-w-2xl ${light ? 'text-primary-100/80' : 'text-primary-600'}`}>
           {subtitle}
         </p>
       )}
-      
-      <div className={`heading-line h-1 ${lineColor} ${centered ? 'mx-auto' : ''} mt-6`}></div>
-    </div>
+    </Reveal>
   )
 }
-
-export default SectionHeading

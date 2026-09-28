@@ -1,4 +1,13 @@
-[[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
+# Netlify: leave "Base directory" empty (the app is at the repo root).
+# Netlify auto-detects Next.js and applies its official Next.js adapter (SSG pages are served from the CDN).
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NEXT_TELEMETRY_DISABLED = "1"
+
+# Pings Bing/IndexNow with all sitemap URLs after each successful production deploy.
+[[plugins]]
+  package = "./netlify/plugins/indexnow"

@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply font-sans text-charcoal bg-white m-0 p-0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold tracking-tight;
+    line-height: 1.2;
+  }
+
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
+  h2 { @apply text-3xl md:text-4xl; }
+  h3 { @apply text-2xl md:text-3xl; }
+  h4 { @apply text-xl md:text-2xl; }
+
+  p { @apply leading-relaxed; }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent-500 ring-offset-2;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold
+           transition-all duration-500 ease-spring active:scale-[0.98]
+           disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+  .btn-primary { @apply bg-primary-900 text-white hover:bg-primary-800; }
+  .btn-secondary { @apply bg-secondary-600 text-white hover:bg-secondary-700; }
+  .btn-accent { @apply bg-accent-500 text-white hover:bg-accent-600; }
+  .btn-outline { @apply bg-transparent ring-1 ring-current hover:bg-primary-900/5; }
+
+  .section { @apply py-24 md:py-32; }
+
+  .card { @apply bg-white rounded-[1.75rem] ring-1 ring-primary-900/5 shadow-[0_20px_60px_-35px_rgba(16,42,67,0.35)] overflow-hidden; }
+
+  /* Double-bezel shell + core (machined-plate look) */
+  .bezel { @apply rounded-[2rem] p-1.5 bg-primary-900/[0.04] ring-1 ring-primary-900/5; }
+  .bezel-core { @apply rounded-[calc(2rem-0.375rem)] bg-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)]; }
+  .bezel-dark { @apply rounded-[2rem] p-1.5 bg-white/5 ring-1 ring-white/10; }
+  .bezel-dark-core { @apply rounded-[calc(2rem-0.375rem)] bg-primary-900/70 shadow-[inset_0_1px_1px_rgba(255,255,255,0.12)]; }
+
+  .display-xl { @apply font-display font-wide font-semibold tracking-[-0.035em] leading-[0.98] text-balance; }
+  .display-lg { @apply font-display font-wide font-semibold tracking-[-0.03em] leading-[1.02] text-balance; }
+  .display-md { @apply font-display font-semibold tracking-[-0.02em] leading-[1.1] text-balance; }
+
+  .chip { @apply rounded-full px-4 py-1.5 text-sm text-primary-700 bg-primary-50 ring-1 ring-primary-900/5; }
+
+  .input {
+    @apply w-full px-5 py-3.5 bg-primary-50/60 rounded-2xl ring-1 ring-primary-900/10 border-0 text-primary-900
+           placeholder:text-primary-400 focus:bg-white focus:ring-2 focus:ring-accent-500 focus:outline-none
+           transition-all duration-300;
+  }
+  .label { @apply block mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-primary-600; }
+
+  .page-hero { @apply relative bg-primary-900 text-white pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden; }
+}
+
+/* ---------- Scroll reveal (progressive enhancement) ----------
+   Content is fully visible without JS (and for crawlers). The `js` class is added
+   by an inline script in <head>; only then do elements start hidden. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* FAQ accordion */
+details.faq > summary { list-style: none; cursor: pointer; }
+details.faq > summary::-webkit-details-marker { display: none; }
+details.faq[open] .faq-icon { transform: rotate(45deg); }
+
+.marquee-track:hover { animation-play-state: paused; }
+
+.scrollbar-thin { scrollbar-width: thin; }
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ---------- Premium home: typography & texture ---------- */
+.font-wide { font-stretch: 118%; }
+/* Only show on tall, non-phone screens (e.g. hero scroll cue) */
+.tall-only { display: none; }
+@media (min-width: 768px) and (min-height: 880px) { .tall-only { display: inline-flex; } }
+/* Hide secondary copy on short desktop screens (pinned scenes must fit one viewport) */
+@media (min-width: 1024px) and (max-height: 879px) { .hide-short { display: none; } }
+/* Product rail intro: only when there is enough vertical room (pinned scene must fit one screen) */
+.rail-intro { display: none; }
+@media (min-width: 768px) and (min-height: 880px) { .rail-intro { display: block; } }
+.font-condensed { font-stretch: 80%; }
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }
+
+.eyebrow {
+  @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em];
+}
+
+/* Film grain - fixed & pointer-events-none so it never repaints on scroll */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 45;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Blueprint grid used on dark sections */
+.blueprint {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+.blueprint-light {
+  background-image:
+    linear-gradient(rgba(16,42,67,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16,42,67,0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* ---------- Scroll-linked scenes ----------
+   <ScrollScene> writes --p (0..1) on its element. Defaults make content fully
+   visible when JS is off (and for crawlers). */
+.word-reveal .w {
+  opacity: clamp(0.14, calc(var(--p, 1) * (var(--n) + 6) * var(--k, 1) - var(--i)), 1);
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s;
+}
+
+.hero-media { transform: scale(calc(1.02 + var(--p, 0) * 0.14)); transform-origin: 50% 40%; will-change: transform; }
+.hero-copy { transform: translate3d(0, calc(var(--p, 0) * -90px), 0); opacity: calc(1 - var(--p, 0) * 1.4); }
+
+.progress-bar { transform: scaleX(var(--p, 0)); transform-origin: 0 50%; }
+
+.rail-track { transform: translate3d(calc(var(--p, 0) * var(--dist, 0px) * -1), 0, 0); will-change: transform; }
+
+/* Island arrow inside pill buttons */
+.pill-btn .pill-icon { transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1); }
+.pill-btn:hover .pill-icon { transform: translate(3px, -2px) scale(1.06); }
+
+/* Hamburger morph */
+.burger span { transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1), opacity 0.3s; }
+.burger[aria-expanded='true'] span:nth-child(1) { transform: translateY(4px) rotate(45deg); }
+.burger[aria-expanded='true'] span:nth-child(2) { transform: translateY(-4px) rotate(-45deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .js .reveal { opacity: 1; transform: none; }
+  .hero-media, .hero-copy, .rail-track { transform: none !important; opacity: 1 !important; }
+  .word-reveal .w { opacity: 1 !important; }
+  .grain { display: none; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal {
+    filter: blur(6px);
+    transition-property: opacity, transform, filter;
+  }
+  .js .reveal.is-visible { filter: none; }
+}
